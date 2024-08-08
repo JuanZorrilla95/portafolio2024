@@ -72,7 +72,7 @@ function Skills() {
 		},
 		{
 		title: 'Herramientas',
-		skills: ['Git', 'Gitlab', 'Github', 'Laravel', 'Herd', 'Symfony', 'Webpack', 'Docker', 'Apache', 'Laragon']
+		skills: ['Git', 'Gitlab', 'Github', 'Laravel/Laravel Herd', 'Symfony', 'Webpack', 'Docker', 'Apache', 'Laragon']
 		},
 		{
 		title: 'Inglés',
