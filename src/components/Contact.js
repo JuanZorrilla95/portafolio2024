@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 //import nodemailer from "nodemailer";
-import React from "react";
+
 import emailjs from "emailjs-com";
 
 const ContactWrapper = styled.section`
