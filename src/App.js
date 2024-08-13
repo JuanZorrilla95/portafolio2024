@@ -8,6 +8,8 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from  './components/Footer';
 import { createGlobalStyle } from 'styled-components';
+import emailjs from 'emailjs-com';
+emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
 const GlobalStyle = createGlobalStyle`
   html {

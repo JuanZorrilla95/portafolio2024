@@ -70,10 +70,29 @@ const ProjectLink = styled.a`
 
 function Projects() {
   const projects = [
-    { title: 'ChocolateShop', description: 'E-commerce de tienda de Chocolates con Laravel 11', image: 'https://github.com/JuanZorrilla95/ChocolateShop/blob/ChocolateShopMain/public/chocolate.png?raw=true', link: 'https://github.com/JuanZorrilla95/chocolateshop' },
-    { title: 'EspacioM', description: 'Espacio de Yoga que incluye pasarela de pago de abono de clases mensuales', image: 'https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico', link: 'https://juanzorrilla95.github.io/espacioM/' },
-    { title: 'GYM Kumbia-PHP', description: 'Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC', image: "./logogym.png", alt: "Logo Gym"
-      , link: 'https://github.com/JuanZorrilla95/GYM-KumbiaPHP' },
+    {
+      title: "ChocolateShop",
+      description: "E-commerce de tienda de Chocolates con Laravel 11",
+      image:
+        "https://github.com/JuanZorrilla95/ChocolateShop/blob/ChocolateShopMain/public/chocolate.png?raw=true",
+      link: "https://github.com/JuanZorrilla95/chocolateshop",
+    },
+    {
+      title: "EspacioM",
+      description:
+        "Espacio de Yoga que incluye pasarela de pago de abono de clases mensuales",
+      image:
+        "https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico",
+      link: "https://juanzorrilla95.github.io/espacioM/",
+    },
+    {
+      title: "GYM Kumbia-PHP",
+      description:
+        "Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC",
+      image: "./logogym.png",
+      alt: "Logo Gym",
+      link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
+    },
   ];
 
   return (
@@ -87,7 +106,7 @@ function Projects() {
               <ProjectInfo>
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDescription>{project.description}</ProjectDescription>
-                <ProjectLink href={project.link}>Ver más</ProjectLink>
+                <ProjectLink href={project.link} target="_blank">Ver más</ProjectLink>
               </ProjectInfo>
             </ProjectCard>
           ))}
