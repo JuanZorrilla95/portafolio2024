@@ -43,7 +43,7 @@ const SkillItem = styled.li`
 `;
 
 function About() {
-  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'PHP', 'Java', 'MySQL', 'PostgreSQL', 'Git'];
+  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'PHP', 'Java 8 & 17', 'MySQL', 'PostgreSQL', 'Git'];
 
   return (
     <AboutWrapper id="about">

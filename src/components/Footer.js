@@ -62,9 +62,6 @@ function Footer() {
           <SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i>
           </SocialLink>
-          <SocialLink href="mailto:zorrillajuan1995@gmail.com">
-                <i className="fas fa-envelope"></i>
-            </SocialLink>
         </SocialLinks>
       </FooterContent>
     </FooterWrapper>

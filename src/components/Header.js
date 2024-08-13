@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+
 const HeaderWrapper = styled.header`
   background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   padding: 1rem 2rem;
@@ -17,6 +18,7 @@ const Logo = styled.h1`
   color: white;
   font-size: 1.5rem;
   margin: 0;
+  cursor: default;
 `;
 
 const NavLinks = styled.ul`
@@ -28,6 +30,12 @@ const NavLinks = styled.ul`
 
 const NavItem = styled.li`
   margin-left: 1.5rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
 
 const NavLink = styled.a`
