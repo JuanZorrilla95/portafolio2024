@@ -8,6 +8,7 @@ emailjs.init('process.env.REACT_APP_EMAILJS_USER_ID');
 const SERVICE_ID = "service_vixwlx9";
 const TEMPLATE_ID = "template_ijhjtdj";
 const PUBLIC_KEY = "eIOCpNB_SrOYTsHUd";
+const USER_ID = "juanzdev";
 
   const ContactWrapper = styled.section`
     background-color: #ffffff;
@@ -71,7 +72,7 @@ function Contact() {
     console.log("Formulario enviado");
 
     
-      emailjs.sendForm((SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+      emailjs.sendForm((SERVICE_ID, TEMPLATE_ID, USER_ID, e.target, PUBLIC_KEY)
     ).then((result) => {
         console.log('Email enviado exitosamente:', result.text);
       
