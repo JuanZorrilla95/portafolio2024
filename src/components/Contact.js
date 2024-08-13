@@ -3,6 +3,8 @@ import styled from "styled-components";
 //import nodemailer from "nodemailer";
 
 import emailjs from "emailjs-com";
+emailjs.init("juanzdev");
+
 
 const ContactWrapper = styled.section`
   background-color: #ffffff;
@@ -58,20 +60,21 @@ const SubmitButton = styled.button`
   }
 `;
 
+
 function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm("service_vixwlx9", "template_ijhjtdj", e.target, "juanzdev")
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      e.target,
+      process.env.REACT_APP_EMAILJS_USER_ID
+    ).then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
   };
 
   return (
