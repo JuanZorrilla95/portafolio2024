@@ -74,10 +74,10 @@ function Contact() {
       emailjs.sendForm((SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
     ).then((result) => {
         console.log('Email enviado exitosamente:', result.text);
-        // Aquí podrías mostrar un mensaje de éxito al usuario
+      
     }, (error) => {
         console.error('Error al enviar el email:', error.text);
-        // Aquí podrías mostrar un mensaje de error al usuario
+        
     });
   };
 
