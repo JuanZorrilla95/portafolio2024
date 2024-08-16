@@ -75,7 +75,7 @@ function Skills() {
       },
     },
     en: {
-      title: "Proven Skills",
+      title: "Proven skills.",
       categories: {
         Frontend: "Frontend",
         Backend: "Backend",

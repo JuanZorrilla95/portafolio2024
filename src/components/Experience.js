@@ -53,7 +53,7 @@ function Experience() {
     },
     en: {
         title: "Work Experience",
-        description: "I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a project called 'Knowledge Management' or 'GC Salud' for the province."
+        description: "I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a legacy project called 'Knowledge Management' or 'GC Salud'."
     }
     };
 

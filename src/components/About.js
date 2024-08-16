@@ -69,7 +69,7 @@ function About() {
     en: {
       title: "About Me",
       description:
-        "I'm a full-stack web developer with 2 years of market experience and a passion for creating innovative and efficient web applications. I love learning new technologies and solving problems. When I'm not coding, I enjoy physical activities like basketball and calisthenics.",
+        "I'm a full-stack developer with 2 YOE and passionate for creating innovative and efficient web apps. I love learning new technologies and solving problems. When I'm not coding, I enjoy physical activities like basketball and calisthenics.",
       skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
     },
   };

@@ -78,7 +78,7 @@ function Projects() {
       viewMore: "Ver más"
     },
     en: {
-      title: "My Projects",
+      title: "Projects",
       viewMore: "View more"
     }
   };
