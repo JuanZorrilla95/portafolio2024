@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { LanguageContext } from './LanguageContext';
 
 const ExperienceWrapper = styled.section`
     background-color: #f8f9fa;
@@ -43,18 +44,27 @@ const SkillItem = styled.li`
 `;
 
 function Experience() {
-    const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'PHP', 'Java', 'MySQL', 'PostgreSQL', 'Git'];
+    const { language } = useContext(LanguageContext);
 
-return (
+    const content = {
+    es: {
+        title: "Experiencia laboral",
+        description: "Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado 'Gestión de Conocimiento' o 'GC Salud' de la provincia."
+    },
+    en: {
+        title: "Work Experience",
+        description: "I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a project called 'Knowledge Management' or 'GC Salud' for the province."
+    }
+    };
+
+    return (
     <ExperienceWrapper id="experience">
         <ExperienceContent>
-        <Title>Experiencia laboral</Title>
-        <Description>
-        Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado ‘Gestión de Conocimiento’ o ‘GC Salud’ de la provincia.
-        </Description>
-    </ExperienceContent>
+        <Title>{content[language].title}</Title>
+        <Description>{content[language].description}</Description>
+        </ExperienceContent>
     </ExperienceWrapper>
-);
+    );
 }
 
 export default Experience;

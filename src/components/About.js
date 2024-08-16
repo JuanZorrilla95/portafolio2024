@@ -1,15 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { LanguageContext } from "./LanguageContext";
 
 const AboutWrapper = styled.section`
-  background-color: #f8f9fa;
-  padding: 4rem 2rem;
+	background-color: #f8f9fa;
+	padding: 4rem 2rem;
 `;
 
 const AboutContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
 `;
 
 const Title = styled.h2`
@@ -43,18 +44,43 @@ const SkillItem = styled.li`
 `;
 
 function About() {
-  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'PHP', 'Java 8 & 17', 'MySQL', 'PostgreSQL', 'Git'];
+  const { language } = useContext(LanguageContext);
+
+  const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "PHP",
+    "Java 8 & 17",
+    "MySQL",
+    "PostgreSQL",
+    "Git",
+  ];
+
+  const content = {
+    es: {
+      title: "Sobre Mí",
+      description:
+        "Soy un desarrollador web full-stack con 2 años de experiencia en el mercado y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.",
+      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
+    },
+    en: {
+      title: "About Me",
+      description:
+        "I'm a full-stack web developer with 2 years of market experience and a passion for creating innovative and efficient web applications. I love learning new technologies and solving problems. When I'm not coding, I enjoy physical activities like basketball and calisthenics.",
+      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
+    },
+  };
 
   return (
     <AboutWrapper id="about">
       <AboutContent>
-        <Title>Sobre Mí</Title>
-        <Description>
-          Soy un desarrollador web full-stack 2 años de experiencia en el mercado y un apasionado por crear aplicaciones web 
-          innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.
-        </Description>
+        <Title>{content[language].title}</Title>
+        <Description>{content[language].description}</Description>
         <SkillsList>
-          {skills.map((skill, index) => (
+          {content[language].skills.map((skill, index) => (
             <SkillItem key={index}>{skill}</SkillItem>
           ))}
         </SkillsList>

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { LanguageContext } from './LanguageContext';
 
 const ProjectsWrapper = styled.section`
   background-color: #ffffff;
@@ -69,6 +70,19 @@ const ProjectLink = styled.a`
 `;
 
 function Projects() {
+  const { language } = useContext(LanguageContext);
+
+  const content = {
+    es: {
+      title: "Mis Proyectos",
+      viewMore: "Ver más"
+    },
+    en: {
+      title: "My Projects",
+      viewMore: "View more"
+    }
+  };
+
   const projects = [
     {
       title: "ChocolateShop",
@@ -98,15 +112,15 @@ function Projects() {
   return (
     <ProjectsWrapper id="projects">
       <ProjectsContent>
-        <Title>Mis Proyectos</Title>
+        <Title>{content[language].title}</Title>
         <ProjectGrid>
           {projects.map((project, index) => (
             <ProjectCard key={index}>
-              <ProjectImage src={project.image} alt={project.title} />
+              <ProjectImage src={project.image} alt={project.title[language]} />
               <ProjectInfo>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
-                <ProjectLink href={project.link} target="_blank">Ver más</ProjectLink>
+                <ProjectTitle>{project.title[language]}</ProjectTitle>
+                <ProjectDescription>{project.description[language]}</ProjectDescription>
+                <ProjectLink href={project.link} target="_blank">{content[language].viewMore}</ProjectLink>
               </ProjectInfo>
             </ProjectCard>
           ))}
@@ -117,3 +131,6 @@ function Projects() {
 }
 
 export default Projects;
+  
+
+

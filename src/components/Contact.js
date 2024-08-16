@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import emailjs from "emailjs-com";
+import { LanguageContext } from './LanguageContext';
 
 emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
 
@@ -58,42 +59,61 @@ const SubmitButton = styled.button`
 	}
 `;
 function Contact() {
+	const { language } = useContext(LanguageContext);
 	const form = useRef();
 	const [isSubmitted, setIsSubmitted] = useState(false);
-
+  
+	const content = {
+	  es: {
+		title: "Contáctame",
+		name: "Nombre",
+		email: "Email",
+		message: "Mensaje",
+		send: "Enviar Mensaje",
+		sent: "✓ Mensaje Enviado"
+	  },
+	  en: {
+		title: "Contact Me",
+		name: "Name",
+		email: "Email",
+		message: "Message",
+		send: "Send Message",
+		sent: "✓ Message Sent"
+	  }
+	};
+  
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		setIsSubmitted(true); 
-
-		emailjs.sendForm(
+	  e.preventDefault();
+	  setIsSubmitted(true);
+  
+	  emailjs.sendForm(
 		process.env.REACT_APP_EMAILJS_SERVICE_ID,
 		process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
 		form.current,
 		process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-		).then((result) => {
-		console.log('Email enviado exitosamente:', result.text);
-		
-		}, (error) => {
-		console.error('Error al enviar el email:', error.text);
-		setIsSubmitted(false); 
-		});
+	  ).then((result) => {
+		console.log('Email sent successfully:', result.text);
+	  }, (error) => {
+		console.error('Error sending email:', error.text);
+		setIsSubmitted(false);
+	  });
 	};
-
+  
 	return (
-		<ContactWrapper id="contact">
+	  <ContactWrapper id="contact">
 		<ContactContent>
-			<Title>Contáctame</Title>
-			<ContactForm ref={form} onSubmit={handleSubmit}>
-			<Input type="text" name="name" placeholder="Nombre" required disabled={isSubmitted} />
-			<Input type="email" name="email" placeholder="Email" required disabled={isSubmitted} />
-			<TextArea name="message" placeholder="Mensaje" required disabled={isSubmitted} />
+		  <Title>{content[language].title}</Title>
+		  <ContactForm ref={form} onSubmit={handleSubmit}>
+			<Input type="text" name="name" placeholder={content[language].name} required disabled={isSubmitted} />
+			<Input type="email" name="email" placeholder={content[language].email} required disabled={isSubmitted} />
+			<TextArea name="message" placeholder={content[language].message} required disabled={isSubmitted} />
 			<SubmitButton type="submit" disabled={isSubmitted}>
-				{isSubmitted ? '✓ Mensaje Enviado' : 'Enviar Mensaje'}
+			  {isSubmitted ? content[language].sent : content[language].send}
 			</SubmitButton>
-			</ContactForm>
+		  </ContactForm>
 		</ContactContent>
-		</ContactWrapper>
+	  </ContactWrapper>
 	);
-}
-
-export default Contact;
+  }
+  
+  export default Contact;

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { LanguageContext } from './LanguageContext';
+
 
 const FooterWrapper = styled.footer`
   background-color: #2c3e50;
@@ -47,25 +49,35 @@ const SocialLink = styled.a`
 `;
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
+	const { language } = useContext(LanguageContext);
+	const currentYear = new Date().getFullYear();
 
-  return (
-    <FooterWrapper>
-      <FooterContent>
-        <Copyright>
-          © {currentYear} JuanZdev. Todos los derechos reservados.
-        </Copyright>
-        <SocialLinks>
-          <SocialLink href="https://github.com/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github"></i>
-          </SocialLink>
-          <SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
-          </SocialLink>
-        </SocialLinks>
-      </FooterContent>
-    </FooterWrapper>
-  );
+	const content = {
+	es: {
+		rights: "Todos los derechos reservados."
+	},
+	en: {
+		rights: "All rights reserved."
+	}
+	};
+
+	return (
+	<FooterWrapper>
+		<FooterContent>
+		<Copyright>
+			© {currentYear} JuanZdev. {content[language].rights}
+		</Copyright>
+		<SocialLinks>
+			<SocialLink href="https://github.com/juanzorrilla95" target="_blank" rel="noopener noreferrer">
+			<i className="fab fa-github"></i>
+			</SocialLink>
+			<SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
+			<i className="fab fa-linkedin"></i>
+			</SocialLink>
+		</SocialLinks>
+		</FooterContent>
+	</FooterWrapper>
+	);
 }
 
 export default Footer;
