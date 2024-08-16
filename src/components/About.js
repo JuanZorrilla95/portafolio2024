@@ -63,7 +63,7 @@ function About() {
     es: {
       title: "Sobre Mí",
       description:
-        "Soy un desarrollador web full-stack con 2 años de experiencia en el mercado y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.",
+        "Soy un desarrollador web full-stack y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.",
       skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
     },
     en: {
