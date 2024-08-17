@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { Link } from "react-scroll";
+import React, { useContext, useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-scroll';
 import { LanguageContext } from './LanguageContext';
 
 const HeaderWrapper = styled.header`
@@ -13,6 +13,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Logo = styled.h1`
@@ -27,6 +28,13 @@ const NavLinks = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  }
 `;
 
 const NavItem = styled.li`
@@ -37,9 +45,13 @@ const NavItem = styled.li`
     transform: scale(1.1);
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -57,34 +69,54 @@ const LanguageSelector = styled.select`
   border: 1px solid white;
   padding: 0.5rem;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
+`;
+
+const MenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 function Header() {
-  const { language, setLanguage } = useContext(LanguageContext);
-
-  const navItems = {
-    en: [
-      { to: "about", text: "About Me" },
-      { to: "experience", text: "Experience" },
-      { to: "skills", text: "Skills" },
-      { to: "projects", text: "Projects" },
-      { to: "contact", text: "Contact" }
-    ],
-    es: [
-      { to: "about", text: "Sobre Mí" },
-      { to: "experience", text: "Experiencia" },
-      { to: "skills", text: "Habilidades" },
-      { to: "projects", text: "Proyectos" },
-      { to: "contact", text: "Contacto" }
-    ],
-    
-  };
+	const { language, setLanguage } = useContext(LanguageContext);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const navItems = {
+		en: [
+		{ to: "about", text: "About Me" },
+		{ to: "experience", text: "Experience" },
+		{ to: "skills", text: "Skills" },
+		{ to: "projects", text: "Projects" },
+		{ to: "contact", text: "Contact" }
+		],
+		es: [
+		{ to: "about", text: "Sobre Mí" },
+		{ to: "experience", text: "Experiencia" },
+		{ to: "skills", text: "Habilidades" },
+		{ to: "projects", text: "Proyectos" },
+		{ to: "contact", text: "Contacto" }
+		],
+		
+	};
 
   return (
     <HeaderWrapper>
       <Nav>
         <Logo>JuanZdev</Logo>
-        <NavLinks>
+        <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          ☰
+        </MenuButton>
+		<NavLinks isOpen={isMenuOpen}>
           {navItems[language].map((item) => (
             <NavItem key={item.to}>
               <Link to={item.to} smooth={true} duration={500}>
