@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import { LanguageContext } from './LanguageContext';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { LanguageContext } from "./LanguageContext";
 
 const ProjectsWrapper = styled.section`
   background-color: #ffffff;
@@ -29,7 +29,7 @@ const ProjectCard = styled.div`
   background-color: #f8f9fa;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 
   &:hover {
@@ -70,67 +70,83 @@ const ProjectLink = styled.a`
 `;
 
 function Projects() {
-  const { language } = useContext(LanguageContext);
+	const { language } = useContext(LanguageContext);
+	const content = {
+		es: {
+		title: "Mis Proyectos",
+		viewMore: "Ver más",
+		},
+		en: {
+		title: "Projects",
+		viewMore: "View more",
+		},
+	};
 
-  const content = {
-    es: {
-      title: "Mis Proyectos",
-      viewMore: "Ver más"
-    },
-    en: {
-      title: "Projects",
-      viewMore: "View more"
-    }
-  };
+	const projects = [
+		{
+		title: {
+			es: "ChocolateShop",
+			en: "ChocolateShop",
+		},
+		description: {
+			es: "E-commerce de tienda de Chocolates con Laravel 11",
+			en: "Chocolate shop e-commerce with Laravel 11",
+		},
+		image:
+			"https://github.com/JuanZorrilla95/ChocolateShop/blob/ChocolateShopMain/public/chocolate.png?raw=true",
+		link: "https://github.com/JuanZorrilla95/chocolateshop",
+		},
+		{
+		title: {
+			es: "EspacioM",
+			en: "EspacioM",
+		},
+		description: {
+			es: "Espacio de Yoga que incluye pasarela de pago de abono de clases mensuales",
+			en: "Yoga space that includes payment gateway for monthly class subscriptions",
+		},
+		image:
+			"https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico",
+		link: "https://juanzorrilla95.github.io/espacioM/",
+		},
+		{
+		title: {
+			es: "GYM Kumbia-PHP",
+			en: "GYM Kumbia-PHP",
+		},
+		description: {
+			es: "Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC",
+			en: "Gym project with class registration, teachers, schedules made with KumbiaPHP and MVC pattern",
+		},
+		image: "./logogym.png",
+		alt: "Logo Gym",
+		link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
+		},
+	];
 
-  const projects = [
-    {
-      title: "ChocolateShop",
-      description: "E-commerce de tienda de Chocolates con Laravel 11",
-      image:
-        "https://github.com/JuanZorrilla95/ChocolateShop/blob/ChocolateShopMain/public/chocolate.png?raw=true",
-      link: "https://github.com/JuanZorrilla95/chocolateshop",
-    },
-    {
-      title: "EspacioM",
-      description:
-        "Espacio de Yoga que incluye pasarela de pago de abono de clases mensuales",
-      image:
-        "https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico",
-      link: "https://juanzorrilla95.github.io/espacioM/",
-    },
-    {
-      title: "GYM Kumbia-PHP",
-      description:
-        "Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC",
-      image: "./logogym.png",
-      alt: "Logo Gym",
-      link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
-    },
-  ];
-
-  return (
-    <ProjectsWrapper id="projects">
-      <ProjectsContent>
-        <Title>{content[language].title}</Title>
-        <ProjectGrid>
-          {projects.map((project, index) => (
-            <ProjectCard key={index}>
-              <ProjectImage src={project.image} alt={project.title[language]} />
-              <ProjectInfo>
-                <ProjectTitle>{project.title[language]}</ProjectTitle>
-                <ProjectDescription>{project.description[language]}</ProjectDescription>
-                <ProjectLink href={project.link} target="_blank">{content[language].viewMore}</ProjectLink>
-              </ProjectInfo>
-            </ProjectCard>
-          ))}
-        </ProjectGrid>
-      </ProjectsContent>
-    </ProjectsWrapper>
-  );
+	return (
+		<ProjectsWrapper id="projects">
+		<ProjectsContent>
+			<Title>{content[language].title}</Title>
+			<ProjectGrid>
+			{projects.map((project, index) => (
+				<ProjectCard key={index}>
+				<ProjectImage src={project.image} alt={project.title[language]} />
+				<ProjectInfo>
+					<ProjectTitle>{project.title[language]}</ProjectTitle>
+					<ProjectDescription>
+					{project.description[language]}
+					</ProjectDescription>
+					<ProjectLink href={project.link} target="_blank">
+					{content[language].viewMore}
+					</ProjectLink>
+				</ProjectInfo>
+				</ProjectCard>
+			))}
+			</ProjectGrid>
+		</ProjectsContent>
+		</ProjectsWrapper>
+	);
 }
 
 export default Projects;
-  
-
-
