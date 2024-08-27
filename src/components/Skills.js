@@ -71,7 +71,7 @@ function Skills() {
         Frontend: "Frontend",
         Backend: "Backend",
         Herramientas: "Herramientas",
-        Inglés: "Inglés",
+        Inglés: "Nivel de Inglés:",
       },
     },
     en: {
@@ -80,7 +80,7 @@ function Skills() {
         Frontend: "Frontend",
         Backend: "Backend",
         Herramientas: "Tools",
-        Inglés: "English",
+        Inglés: "My English level:",
       },
     },
   };
