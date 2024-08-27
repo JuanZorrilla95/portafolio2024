@@ -28,7 +28,7 @@ const NavLinks = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-
+  align-items: center;
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -40,12 +40,9 @@ const NavLinks = styled.ul`
 const NavItem = styled.li`
   margin-left: 1.5rem;
   transition: transform 0.3s ease;
-
   &:hover {
     transform: scale(1.1);
-    cursor: pointer;
   }
-
   @media (max-width: 768px) {
     margin: 1rem 0;
   }
@@ -56,20 +53,25 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.3s ease;
-
+  cursor: pointer;
   &:hover {
     opacity: 0.8;
   }
 `;
 
-const LanguageSelector = styled.select`
-  margin-left: 1.5rem;
+const LanguageButton = styled.button`
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1.5rem;
   cursor: pointer;
-
+  transition: all 0.3s ease;
+  font-weight: 500;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+  }
   @media (max-width: 768px) {
     margin: 1rem 0;
   }
@@ -82,32 +84,35 @@ const MenuButton = styled.button`
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
-
   @media (max-width: 768px) {
     display: block;
   }
 `;
 
 function Header() {
-	const { language, setLanguage } = useContext(LanguageContext);
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const navItems = {
-		en: [
-		{ to: "about", text: "About Me" },
-		{ to: "experience", text: "Experience" },
-		{ to: "skills", text: "Skills" },
-		{ to: "projects", text: "Projects" },
-		{ to: "contact", text: "Contact" }
-		],
-		es: [
-		{ to: "about", text: "Sobre Mí" },
-		{ to: "experience", text: "Experiencia" },
-		{ to: "skills", text: "Habilidades" },
-		{ to: "projects", text: "Proyectos" },
-		{ to: "contact", text: "Contacto" }
-		],
-		
-	};
+  const { language, setLanguage } = useContext(LanguageContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navItems = {
+    en: [
+      { to: "about", text: "About Me" },
+      { to: "experience", text: "Experience" },
+      { to: "skills", text: "Skills" },
+      { to: "projects", text: "Projects" },
+      { to: "contact", text: "Contact" }
+    ],
+    es: [
+      { to: "about", text: "Sobre Mí" },
+      { to: "experience", text: "Experiencia" },
+      { to: "skills", text: "Habilidades" },
+      { to: "projects", text: "Proyectos" },
+      { to: "contact", text: "Contacto" }
+    ],
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'es' : 'en');
+  };
 
   return (
     <HeaderWrapper>
@@ -116,22 +121,20 @@ function Header() {
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
         </MenuButton>
-		<NavLinks isOpen={isMenuOpen}>
+        <NavLinks isOpen={isMenuOpen}>
           {navItems[language].map((item) => (
             <NavItem key={item.to}>
-              <Link to={item.to} smooth={true} duration={500}>
+              <NavLink to={item.to} smooth={true} duration={500}>
                 {item.text}
-              </Link>
+              </NavLink>
             </NavItem>
           ))}
+          <NavItem>
+            <LanguageButton onClick={toggleLanguage}>
+              {language === 'en' ? 'ES' : 'EN'}
+            </LanguageButton>
+          </NavItem>
         </NavLinks>
-        <LanguageSelector
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-        >
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-        </LanguageSelector>
       </Nav>
     </HeaderWrapper>
   );
