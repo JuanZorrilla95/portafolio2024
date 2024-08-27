@@ -43,12 +43,12 @@ function Hero() {
 	es: {
 		title: "Bienvenidos a mi portafolio",
 		subtitle: "Soy un desarrollador Full-Stack apasionado por crear experiencias web atractivas y eficientes.",
-		cta: "Ver mis Proyectos"
+		cta: "Ver mis proyectos"
 	},
 	en: {
 		title: "Welcome to my portfolio",
 		subtitle: "I'm a Full-Stack developer passionate about creating attractive and efficient web experiences for the users.",
-		cta: "View my Projects"
+		cta: "View my projects"
 	}
 	};
 

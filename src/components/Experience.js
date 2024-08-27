@@ -47,14 +47,24 @@ function Experience() {
     const { language } = useContext(LanguageContext);
 
     const content = {
-    es: {
+        es: {
         title: "Experiencia laboral",
-        description: "Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado 'Gestión de Conocimiento' o 'GC Salud' de la provincia."
-    },
-    en: {
-        title: "Work Experience",
-        description: "I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a legacy project called 'Knowledge Management' or 'GC Salud'."
-    }
+        description: (
+            <span>
+                Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado 
+                <a href="https://www.santafe.gob.ar/gcsalud/" rel="noreferrer" target="_blank"> GC Salud
+                <img src="flechas-izquierda.png" alt="GC Salud" style={{ width: 18, height: 18 }}/></a>
+            </span>
+        )},
+        en: {
+        title: "Work experience",
+        description: (
+            <span>
+                I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a legacy project called 
+                GC Salud <a href="https://www.santafe.gob.ar/gcsalud/" rel="noreferrer" target="_blank">    
+                <img src="flechas-izquierda.png" alt="GC Salud" style={{ width: 18, height: 18 }}/></a>  
+            </span>
+        )}
     };
 
     return (

@@ -61,15 +61,15 @@ function About() {
 
   const content = {
     es: {
-      title: "Sobre Mí",
+      title: "Sobre mí",
       description:
         "Soy un desarrollador web full-stack y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.",
       skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
     },
     en: {
-      title: "About Me",
+      title: "About me",
       description:
-        "I'm a full-stack developer with 2 YOE and passionate for creating innovative and efficient web apps. I love learning new technologies and solving problems. When I'm not coding, I enjoy physical activities like basketball and calisthenics.",
+        "I'm a full-stack developer with 2 YOE and passionate for creating innovative and efficient web apps. I love learning new technologies and solving problems. When I'm not looking at pixels, I enjoy physical activities like basketball and calisthenics.",
       skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
     },
   };

@@ -69,16 +69,16 @@ function Contact() {
 		name: "Nombre",
 		email: "Email",
 		message: "Mensaje",
-		send: "Enviar Mensaje",
-		sent: "✓ Mensaje Enviado"
+		send: "Enviar mensaje",
+		sent: "Mensaje enviado ✓"
 	},
 	en: {
-		title: "Contact Me",
+		title: "Let's get in touch",
 		name: "Name",
 		email: "Email",
 		message: "Message",
-		send: "Send Message",
-		sent: "✓ Message Sent"
+		send: "Send message",
+		sent: "Message Sent ✓"
 	}
 	};
 
