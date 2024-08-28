@@ -74,7 +74,7 @@ const SkillIcon = styled.img`
 
 const EnglishSkillItem = styled(SkillItem)`
   &:before {
-    content: "▹";
+    content: "▾";
     color: #007bff;
     margin-right: 0.5rem;
   }
