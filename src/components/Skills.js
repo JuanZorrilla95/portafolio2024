@@ -3,161 +3,189 @@ import styled from "styled-components";
 import { LanguageContext } from "./LanguageContext";
 
 const SkillsWrapper = styled.section`
-	background-color: #f0f4f8;
-	padding: 4rem 2rem;
+    background-color: #f0f4f8;
+    padding: 4rem 2rem;
 `;
 
 const SkillsContent = styled.div`
-	max-width: 800px;
-	margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 `;
 
 const Title = styled.h2`
-	color: #333;
-	font-size: 2.5rem;
-	text-align: center;
-	margin-bottom: 3rem;
+    color: #333;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
 `;
 
 const SkillCategories = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 `;
 
 const CategoryCard = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const CategoryTitle = styled.h3`
-  color: #007bff;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 `;
 
 const SkillList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
 `;
 
 const SkillItem = styled.li`
-  &:before {
-    content: "▹";
-    color: #007bff;
-    margin-right: 0.5rem;
-  }
-  color: #333;
-  margin-bottom: 0.5rem;
-  display: grid;
-  align-items: center;
-  grid-template-columns: min-content 1fr;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-bottom: 0.5rem;
+    user-select: none;
 `;
 
-function Skills() {
-  const { language } = useContext(LanguageContext);
+const SkillIcon = styled.img`
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+`;
 
-  const content = {
-    es: {
-      title: "Skills probadas",
-      categories: {
-        Frontend: "Frontend",
-        Backend: "Backend",
-        Herramientas: "Herramientas",
-        Inglés: "Nivel de Inglés:",
-      },
-    },
-    en: {
-      title: "Proven skills.",
-      categories: {
-        Frontend: "Frontend",
-        Backend: "Backend",
-        Herramientas: "Tools",
-        Inglés: "My English level:",
-      },
-    },
-  };
+const EnglishSkillItem = styled(SkillItem)`
+    &:before {
+        content: "▹";
+        color: #007bff;
+        margin-right: 0.5rem;
+    }
+    user-select: text;
+`;
+const SkillIconLink = styled.a`
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+        opacity: 0.8;
+    }
+`;
+const Skills = () => {
+    const { language } = useContext(LanguageContext);
 
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Angular"],
-    },
-    {
-      title: "Backend",
-      skills: [
-        "MySQL",
-        "PHP",
-        "PostgreSQL",
-        "Python",
-        "Node.js",
-        "API RESTful",
-        "Postman",
-      ],
-    },
-    {
-      title: "Herramientas",
-      skills: [
-        "Git",
-        "Gitlab",
-        "Github",
-        "Laravel/Laravel Herd",
-        "Symfony",
-        "Webpack",
-        "Docker",
-        "Apache",
-        "Laragon",
-      ],
-    },
-    {
-      title: "Inglés",
-      skills: {
-        es: [
-          "Entre B2 y C1",
-          "Academia Global Connections (5 años)",
-          "EF SET (C1 Avanzado): efset.org/cert/EUPSMW",
+    const content = {
+        es: {
+        title: "Skills probadas",
+        categories: {
+            Frontend: "Frontend",
+            Backend: "Backend",
+            Herramientas: "Herramientas",
+            Inglés: "Nivel de Inglés:",
+        },
+        },
+        en: {
+        title: "Proven skills",
+        categories: {
+            Frontend: "Frontend",
+            Backend: "Backend",
+            Herramientas: "Tools",
+            Inglés: "My English level:",
+        },
+        },
+    };
+
+    const skillCategories = [
+        {
+        title: "Frontend",
+        skills: [
+            { name: "HTML5", icon: "/html5.png", url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" },
+            { name: "CSS3", icon: "/css3.png", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+            { name: "JavaScript", icon: "/javascript.png", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+            { name: "React", icon: "/react.png", url: "https://reactjs.org/" },
+            { name: "Angular", icon: "/angular.png", url: "https://angular.io/" },
         ],
-        en: [
-          "Between B2 and C1",
-          "Global Connections Academy (5 years)",
-          "EF SET (C1 Advanced): efset.org/cert/EUPSMW",
+        },
+        {
+        title: "Backend",
+        skills: [
+            { name: "MySQL", icon: "/mysql.png", url: "https://www.mysql.com/" },
+            { name: "PHP", icon: "/php.png", url: "https://www.php.net/" },
+            { name: "PostgreSQL", icon: "/postgresql.png", url: "https://www.postgresql.org/" },
+            { name: "Python", icon: "/python.png", url: "https://www.python.org/" },
+            { name: "Node.js", icon: "/nodejs.png", url: "https://nodejs.org/" },
+            { name: "API RESTful", icon: "/api.png", url: "https://restfulapi.net/" },
+            { name: "Postman", icon: "/postman.png", url: "https://www.postman.com/" },
         ],
-      },
-    },
-  ];
+        },
+        {
+        title: "Herramientas",
+        skills: [
+            { name: "Git", icon: "/git.png", url: "https://git-scm.com/" },
+            { name: "Gitlab", icon: "/gitlab.png", url: "https://about.gitlab.com/" },
+            { name: "Github", icon: "/github.png", url: "https://github.com/" },
+            { name: "Laravel/Laravel Herd", icon: "/laravel.png", url: "https://laravel.com/" },
+            { name: "Symfony", icon: "/symfony.png", url: "https://symfony.com/" },
+            { name: "Docker", icon: "/docker.png", url: "https://www.docker.com/" },
+            { name: "Apache", icon: "/apache.png", url: "https://httpd.apache.org/" },
+            { name: "Laragon", icon: "/laragon.png", url: "https://laragon.org/" },
+        ],
+        },
+        {
+        title: "Inglés",
+        skills: {
+            es: [
+            "Entre B2 y C1",
+            "Academia Global Connections (5 años)",
+            "EF SET (C1 Avanzado): efset.org/cert/EUPSMW",
+            ],
+            en: [
+            "Between B2 and C1",
+            "Global Connections Academy (5 years)",
+            "EF SET (C1 Advanced): efset.org/cert/EUPSMW",
+            ],
+        },
+        },
+    ];
 
-  return (
-	<SkillsWrapper id="skills">
-	<SkillsContent>
-		<Title>{content[language].title}</Title>
-		<SkillCategories>
-		{skillCategories.map((category, index) => (
-			<CategoryCard key={index}>
-			<CategoryTitle>
-				{content[language].categories[category.title]}
-			</CategoryTitle>
-			<SkillList>
-				{Array.isArray(category.skills)
-				? category.skills.map((skill, skillIndex) => (
-					<SkillItem key={skillIndex}>{skill}</SkillItem>
-					))
-				: category.skills[language].map((skill, skillIndex) => (
-					<SkillItem key={skillIndex}>{skill}</SkillItem>
-					))}
-			</SkillList>
-			</CategoryCard>
-		))}
-		</SkillCategories>
-	</SkillsContent>
-	</SkillsWrapper>
-);
-}
+    return (
+        <SkillsWrapper id="skills">
+        <SkillsContent>
+            <Title>{content[language].title}</Title>
+            <SkillCategories>
+            {skillCategories.map((category, index) => (
+                <CategoryCard key={index}>
+                <CategoryTitle>
+                    {content[language].categories[category.title]}
+                </CategoryTitle>
+                <SkillList>
+                    {category.title === "Inglés"
+                    ? category.skills[language].map((skill, skillIndex) => (
+                        <EnglishSkillItem key={skillIndex}>{skill}</EnglishSkillItem>
+                        ))
+                    : category.skills.map((skill, skillIndex) => (
+                        <SkillItem key={skillIndex}>
+                            <SkillIconLink href={skill.url} target="_blank" rel="noopener noreferrer">
+                            <SkillIcon src={skill.icon} alt={skill.name} />
+                            {skill.name}
+                            </SkillIconLink>
+                        </SkillItem>
+                        ))}
+                </SkillList>
+                </CategoryCard>
+            ))}
+            </SkillCategories>
+        </SkillsContent>
+        </SkillsWrapper>
+    );
+};
 
 export default Skills;
