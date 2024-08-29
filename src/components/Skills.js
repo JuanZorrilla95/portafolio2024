@@ -155,69 +155,71 @@ const Skills = () => {
     },
     {
         title: "Inglés",
-        skills: {
-          es: [
-            "Entre B2 y C1",
-            "Academia Global Connections (5 años)",
-            <>
-              EF SET (C1 Avanzado):
-              <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
-                efset.org/cert/EUPSMW
-              </EnglishLink>
-            </>,
-          ],
-          en: [
-            "Between B2 and C1",
-            "Global Connections Academy (5 years)",
-            <>
-              EF SET (C1 Advanced):
-              <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
-                efset.org/cert/EUPSMW
-              </EnglishLink>
-            </>,
-          ],
-        },
+      skills: {
+        es: [
+          "Entre B2 y C1",
+		  <>
+            <EnglishLink href="https://imgur.com/5U3XP8M" target="_blank" rel="noopener noreferrer">
+				Academia Global Connections (5 años)
+            </EnglishLink>
+          </>,
+          <>
+            EF SET (C1 Avanzado):
+            <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
+              efset.org/cert/EUPSMW
+            </EnglishLink>
+          </>,
+        ],
+        en: [
+          "Between B2 and C1",
+          <>
+            <EnglishLink href="https://imgur.com/5U3XP8M" target="_blank" rel="noopener noreferrer">
+              Global Connections Academy (5 years)
+            </EnglishLink>
+          </>,
+          <>
+            EF SET (C1 Advanced):
+            <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
+              efset.org/cert/EUPSMW
+            </EnglishLink>
+          </>,
+        ],
       },
-    ];
+    },
+  ];
   
-    return (
-      <SkillsWrapper id="skills">
-        <SkillsContent>
-          <Title>{content[language].title}</Title>
-          <SkillCategories>
-            {skillCategories.map((category, index) => (
-              <CategoryCard key={index}>
-                <CategoryTitle>
-                  {content[language].categories[category.title]}
-                </CategoryTitle>
-                <SkillList>
-                  {category.title === "Inglés"
-                    ? category.skills[language].map((skill, skillIndex) => (
-                        <EnglishSkillItem key={skillIndex}>
-                          {typeof skill === 'string' ? skill : (
-                            <>
-                              {skill.props.children[0]}
-                              <br />
-                              {skill.props.children[1]}
-                            </>
-                          )}
-                        </EnglishSkillItem>
-                      ))
-                    : category.skills.map((skill, skillIndex) => (
-                        <SkillItem key={skillIndex}>
-                          <SkillIconLink href={skill.url} target="_blank" rel="noopener noreferrer">
-                            <SkillIcon src={skill.icon} alt={skill.name} />
-                            {skill.name}
-                          </SkillIconLink>
-                        </SkillItem>
-                      ))}
-                </SkillList>
-              </CategoryCard>
-            ))}
-          </SkillCategories>
-        </SkillsContent>
-      </SkillsWrapper>
-    );
-  };
-  
-  export default Skills;
+  return (
+    <SkillsWrapper id="skills">
+      <SkillsContent>
+        <Title>{content[language].title}</Title>
+        <SkillCategories>
+          {skillCategories.map((category, index) => (
+            <CategoryCard key={index}>
+              <CategoryTitle>
+                {content[language].categories[category.title]}
+              </CategoryTitle>
+              <SkillList>
+                {category.title === "Inglés"
+                  ? category.skills[language].map((skill, skillIndex) => (
+                      <EnglishSkillItem key={skillIndex}>
+                        {React.isValidElement(skill) ? skill : skill}
+                      </EnglishSkillItem>
+                    ))
+                  : category.skills.map((skill, skillIndex) => (
+                      <SkillItem key={skillIndex}>
+                        <SkillIconLink href={skill.url} target="_blank" rel="noopener noreferrer">
+                          <SkillIcon src={skill.icon} alt={skill.name} />
+                          {skill.name}
+                        </SkillIconLink>
+                      </SkillItem>
+                    ))}
+              </SkillList>
+            </CategoryCard>
+          ))}
+        </SkillCategories>
+      </SkillsContent>
+    </SkillsWrapper>
+  );
+};
+
+export default Skills;
