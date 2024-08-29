@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { LanguageContext } from "./LanguageContext";
 
 const AboutWrapper = styled.section`
-	background-color: #f8f9fa;
-	padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
 `;
 
 const AboutContent = styled.div`
-	max-width: 800px;
-	margin: 0 auto;
-	text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 `;
 
 const Title = styled.h2`
@@ -41,36 +41,46 @@ const SkillItem = styled.li`
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const SkillIcon = styled.img`
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+
+  ${SkillItem}:hover & {
+    transform: translateX(-50%) scale(1);
+  }
 `;
 
 function About() {
   const { language } = useContext(LanguageContext);
-
-  const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "PHP",
-    "Java 8 & 17",
-    "MySQL",
-    "PostgreSQL",
-    "Git",
-  ];
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const content = {
     es: {
       title: "Sobre mí",
       description:
         "Soy un desarrollador web full-stack y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnologías y resolver problemas. Cuando no estoy codeando, disfruto de actividad física como basquet y calistenia.",
-      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
+      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML5", "CSS3"],
     },
     en: {
       title: "About me",
       description:
         "I'm a full-stack developer with 2 YOE and passionate for creating innovative and efficient web apps. I love learning new technologies and solving problems. When I'm not looking at pixels, I enjoy physical activities like basketball and calisthenics.",
-      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML/CSS"],
+      skills: ["React", "Node.js", "JavaScript", "PHP", "MySQL", "HTML5", "CSS3"],
     },
   };
 
@@ -81,7 +91,18 @@ function About() {
         <Description>{content[language].description}</Description>
         <SkillsList>
           {content[language].skills.map((skill, index) => (
-            <SkillItem key={index}>{skill}</SkillItem>
+            <SkillItem 
+              key={index}
+              onMouseEnter={() => setHoveredSkill(skill)}
+              onMouseLeave={() => setHoveredSkill(null)}
+            >
+              {skill}
+              <SkillIcon 
+                src={`/${skill.toLowerCase().replace('.', '')}.png`} 
+                alt={`${skill} icon`}
+                style={{ opacity: hoveredSkill === skill ? 1 : 0 }}
+              />
+            </SkillItem>
           ))}
         </SkillsList>
       </AboutContent>
