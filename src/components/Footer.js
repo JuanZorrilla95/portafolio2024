@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { LanguageContext } from './LanguageContext';
 
-
 const FooterWrapper = styled.footer`
   background-color: #2c3e50;
   color: #ecf0f1;
   padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+  }
 `;
 
 const FooterContent = styled.div`
@@ -21,12 +24,17 @@ const FooterContent = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
+    padding: 0 1rem;
   }
 `;
 
 const Copyright = styled.p`
   font-size: 0.9rem;
   margin: 0;
+
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const SocialLinks = styled.div`
@@ -46,38 +54,42 @@ const SocialLink = styled.a`
   &:hover {
     color: #3498db;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 function Footer() {
-	const { language } = useContext(LanguageContext);
-	const currentYear = new Date().getFullYear();
+  const { language } = useContext(LanguageContext);
+  const currentYear = new Date().getFullYear();
 
-	const content = {
-	es: {
-		rights: "Todos los derechos reservados."
-	},
-	en: {
-		rights: "All rights reserved."
-	}
-	};
+  const content = {
+    es: {
+      rights: "Todos los derechos reservados."
+    },
+    en: {
+      rights: "All rights reserved."
+    }
+  };
 
-	return (
-	<FooterWrapper>
-		<FooterContent>
-		<Copyright>
-			© {currentYear} JuanZdev. {content[language].rights}
-		</Copyright>
-		<SocialLinks>
-			<SocialLink href="https://github.com/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-			<i className="fab fa-github"></i>
-			</SocialLink>
-			<SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-			<i className="fab fa-linkedin"></i>
-			</SocialLink>
-		</SocialLinks>
-		</FooterContent>
-	</FooterWrapper>
-	);
+  return (
+    <FooterWrapper>
+      <FooterContent>
+        <Copyright>
+          © {currentYear} JuanZdev. {content[language].rights}
+        </Copyright>
+        <SocialLinks>
+          <SocialLink href="https://github.com/juanzorrilla95" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github"></i>
+          </SocialLink>
+          <SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i>
+          </SocialLink>
+        </SocialLinks>
+      </FooterContent>
+    </FooterWrapper>
+  );
 }
 
 export default Footer;

@@ -5,18 +5,30 @@ import { LanguageContext } from "./LanguageContext";
 const AboutWrapper = styled.section`
   background-color: #f8f9fa;
   padding: 4rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const AboutContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const Title = styled.h2`
   color: #333;
   font-size: 2.5rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Description = styled.p`
@@ -24,6 +36,10 @@ const Description = styled.p`
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const SkillsList = styled.ul`
@@ -33,6 +49,10 @@ const SkillsList = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 
 const SkillItem = styled.li`
@@ -48,6 +68,10 @@ const SkillItem = styled.li`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.3rem 0.8rem;
   }
 `;
 

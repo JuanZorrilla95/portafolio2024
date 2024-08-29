@@ -102,8 +102,8 @@ function Projects() {
 			en: "EspacioM",
 		},
 		description: {
-			es: "Espacio de Yoga que incluye pasarela de pago de abono de clases mensuales",
-			en: "Yoga space that includes payment gateway for monthly class subscriptions",
+			es: "Espacio de Yoga que simula pasarela de pago de abono de clases mensuales",
+			en: "Yoga space that simulates payment gateway for monthly class subscriptions",
 		},
 		image:
 			"https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico",
