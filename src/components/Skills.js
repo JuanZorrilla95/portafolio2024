@@ -148,9 +148,10 @@ const Skills = () => {
         { name: "Github", icon: "/github.png", url: "https://github.com/" },
         { name: "Laravel/Laravel Herd", icon: "/laravel.png", url: "https://laravel.com/" },
         { name: "Symfony", icon: "/symfony.png", url: "https://symfony.com/" },
+		{ name: "Laragon", icon: "/laragon.png", url: "https://laragon.org/" },
         { name: "Docker", icon: "/docker.png", url: "https://www.docker.com/" },
         { name: "Apache", icon: "/apache.png", url: "https://httpd.apache.org/" },
-        { name: "Laragon", icon: "/laragon.png", url: "https://laragon.org/" },
+        { name: "Redmine", icon: "/redmine.png" },
       ],
     },
     {
