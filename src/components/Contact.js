@@ -105,7 +105,7 @@ function Contact() {
 			sent: "Mensaje enviado ✓"
 		},
 		en: {
-			title: "Let's get in touch",
+			title: "Let's get in touch!",
 			name: "Name",
 			email: "Email",
 			message: "Message",
