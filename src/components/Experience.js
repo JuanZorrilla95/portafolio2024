@@ -94,40 +94,72 @@ const StyledLink = styled.a`
     }
 `;
 
+const ExperienceItem = styled.div`
+    margin-bottom: 3rem;
+`;
+
 function Experience() {
     const { language } = useContext(LanguageContext);
+
     const content = {
         es: {
             title: "Experiencia laboral",
-            description: (
-                <span>
-                    Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto 
-                    llamado  <StyledLink href="https://www.santafe.gob.ar/gcsalud/" rel="noreferrer" 
-                    target="_blank">
-                        {" GC Salud "}
-                        <img src="flechas-izquierda.png" alt="GC Salud" style={{ width: 18, height: 18 }}/>
-                    </StyledLink>
-                </span>
-            )
+            experiences: [
+                {
+                    description: (
+                        <>
+                            Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado {" "}
+                            <StyledLink href="https://www.santafe.gob.ar/ms/gcsalud/" target="_blank" rel="noopener noreferrer">
+                                GC Salud
+                                <img src="flechas-izquierda.png" alt="GC Salud" width="16" height="16" />
+                            </StyledLink>
+                        </>
+                    ),
+                    skills: ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"]
+                },
+                {
+                    description: "Actualmente estoy trabajando como desarrollador Full-Stack Laravel en una aplicación de préstamos financieros llamada Koinsya y adminKoinsya, implementando APIs de bancos, nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.",
+                    skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"]
+                }
+            ]
         },
         en: {
             title: "Work experience",
-            description: (
-                <span>
-                    I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a legacy project called                     <StyledLink href="https://www.santafe.gob.ar/gcsalud/" rel="noreferrer" target="_blank">
-                        {" GC Salud "}
-                        <img src="flechas-izquierda.png" alt="GC Salud" style={{ width: 18, height: 18 }}/>
-                    </StyledLink>
-                </span>
-            )
+            experiences: [
+                {
+                    description: (
+                        <>
+                            I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a project called {" "}
+                            <StyledLink href="https://www.santafe.gob.ar/ms/gcsalud/" target="_blank" rel="noopener noreferrer">
+                                GC Salud
+                                <img src="flechas-izquierda.png" alt="GC Salud" width="16" height="16" />
+                            </StyledLink>
+                        </>
+                    ),
+                    skills: ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"]
+                },
+                {
+                    description: "Currently working as a Full-Stack Laravel developer  at a financial loan app called Koinsya & adminKoinsya, implementing bank apis, new funcionalities and migrating DB from mysql to AWS Cloud.",
+                    skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"]
+                }
+            ]
         }
     };
 
     return (
-        <ExperienceWrapper id="experience">
+        <ExperienceWrapper>
             <ExperienceContent>
                 <Title>{content[language].title}</Title>
-                <Description>{content[language].description}</Description>
+                {content[language].experiences.map((experience, index) => (
+                    <ExperienceItem key={index}>
+                        <Description>{experience.description}</Description>
+                        <SkillsList>
+                            {experience.skills.map((skill, skillIndex) => (
+                                <SkillItem key={skillIndex}>{skill}</SkillItem>
+                            ))}
+                        </SkillsList>
+                    </ExperienceItem>
+                ))}
             </ExperienceContent>
         </ExperienceWrapper>
     );
