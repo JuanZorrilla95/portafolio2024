@@ -88,7 +88,20 @@ const MenuButton = styled.button`
     display: block;
   }
 `;
+const ExperienceWrapper = styled.section`
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 4rem 2rem;
+    id: "experience"; // Esto no funcionará
 
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+        padding: 2rem 1rem;
+    }
+`;
 function Header() {
   const { language, setLanguage } = useContext(LanguageContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
