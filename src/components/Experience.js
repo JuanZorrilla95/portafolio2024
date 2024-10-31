@@ -2,6 +2,14 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { LanguageContext } from './LanguageContext';
 import ScrollToTopButton from './ScrollToTopButton';
+
+const Separator = styled.div`
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #007bff, transparent);
+    margin: 2rem 0;
+    opacity: 0.5;
+`;
 const ExperienceWrapper = styled.section`
     position: relative;
     background-color: #f8f9fa;
@@ -100,9 +108,10 @@ const ExperienceItem = styled.div`
     margin-bottom: 3rem;
 `;
 
+
+
 function Experience() {
     const { language } = useContext(LanguageContext);
-
     const content = {
         es: {
             title: "Experiencia laboral",
@@ -110,7 +119,7 @@ function Experience() {
                 {
                     description: (
                         <>
-                            Trabajé como Full-Stack Developer en el Ministerio de Salud (Santa Fe - Argentina) en un proyecto llamado {" "}
+                            Trabajé como Full-Stack Developer en el <b>Ministerio de Salud</b> (Santa Fe - Argentina) en un proyecto llamado {" "}
                             <StyledLink href="https://www.santafe.gob.ar/ms/gcsalud/" target="_blank" rel="noopener noreferrer">
                                 GC Salud
                                 <img src="flechas-izquierda.png" alt="GC Salud" width="16" height="16" />
@@ -120,7 +129,11 @@ function Experience() {
                     skills: ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"]
                 },
                 {
-                    description: "Actualmente estoy trabajando como desarrollador Full-Stack Laravel en una aplicación de préstamos financieros llamada Koinsya y adminKoinsya, implementando APIs de bancos, nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.",
+                    description: (
+                        <> 
+                    Actualmente trabajando como desarrollador Full-Stack Laravel en una aplicación de préstamos financieros llamada <b>Koinsya</b> y <b>adminKoinsya</b>, implementando APIs de bancos, nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.
+                        </>
+                    ),
                     skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"]
                 }
             ]
@@ -131,7 +144,7 @@ function Experience() {
                 {
                     description: (
                         <>
-                            I worked as a Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on a project called {" "}
+                            I worked as a Full-Stack Developer at the <b>Ministry of Health</b> (Santa Fe - Argentina) on a project called {" "}
                             <StyledLink href="https://www.santafe.gob.ar/ms/gcsalud/" target="_blank" rel="noopener noreferrer">
                                 GC Salud
                                 <img src="flechas-izquierda.png" alt="GC Salud" width="16" height="16" />
@@ -141,7 +154,11 @@ function Experience() {
                     skills: ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"]
                 },
                 {
-                    description: "Currently working as a Full-Stack Laravel developer  at a financial loan app called Koinsya & adminKoinsya, implementing bank apis, new funcionalities and migrating DB from mysql to AWS Cloud.",
+                    description: (
+                        <>
+                        Currently working as a Full-Stack Laravel developer  at a financial loan app called <b>Koinsya</b> & <b>adminKoinsya</b>, implementing bank apis, new funcionalities and migrating DB from mysql to AWS Cloud.
+                        </>
+                    ),
                     skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"]
                 }
             ]
@@ -153,14 +170,17 @@ function Experience() {
             <ExperienceContent>
                 <Title>{content[language].title}</Title>
                 {content[language].experiences.map((experience, index) => (
-                    <ExperienceItem key={index}>
-                        <Description>{experience.description}</Description>
-                        <SkillsList>
-                            {experience.skills.map((skill, skillIndex) => (
-                                <SkillItem key={skillIndex}>{skill}</SkillItem>
-                            ))}
-                        </SkillsList>
-                    </ExperienceItem>
+                    <React.Fragment key={index}>
+                        <ExperienceItem>
+                            <Description>{experience.description}</Description>
+                            <SkillsList>
+                                {experience.skills.map((skill, skillIndex) => (
+                                    <SkillItem key={skillIndex}>{skill}</SkillItem>
+                                ))}
+                            </SkillsList>
+                        </ExperienceItem>
+                        {index < content[language].experiences.length - 1 && <Separator />}
+                    </React.Fragment>
                 ))}
             </ExperienceContent>
             <ScrollToTopButton />
