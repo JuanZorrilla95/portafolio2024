@@ -3,15 +3,14 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-scroll';
 import { LanguageContext } from './LanguageContext';
 
-const spin = keyframes`
+const shadowPopTr = keyframes`
   0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(0.5);
+    box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+    transform: translateX(0) translateY(0);
   }
   100% {
-    transform: rotate(360deg) scale(1);
+    box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+    transform: translateX(-8px) translateY(8px);
   }
 `;
 
@@ -30,7 +29,6 @@ const Nav = styled.nav`
 
 const LogoWrapper = styled.div`
   cursor: pointer;
-  perspective: 1000px;
   position: relative;
   height: 2rem;
   width: 120px;
@@ -42,32 +40,9 @@ const LogoText = styled.h1`
   color: white;
   font-size: 1.5rem;
   margin: 0;
-  transition: opacity 0.3s ease;
-  opacity: ${props => props.isAnimating ? 0 : 1};
-`;
-
-const LogoSymbol = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 1.2rem;
-  opacity: ${props => props.isAnimating ? 1 : 0};
-  animation: ${props => props.isAnimating ? spin : 'none'} 1s ease-in-out;
-  width: 30px;
-  height: 30px;
-  border: 2px solid white;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &::before {
-    content: "JZ";
-    font-weight: bold;
-    font-style: italic;
-  }
+  animation: ${props => props.isAnimating ? shadowPopTr : 'none'} 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  transition: transform 0.5s ease-out;
+  transform: ${props => props.isAnimating ? 'none' : 'translateX(0) translateY(0)'};
 `;
 
 const NavLinks = styled.ul`
@@ -166,7 +141,7 @@ function Header() {
     setIsAnimating(true);
     setTimeout(() => {
       setIsAnimating(false);
-    }, 1000);
+    }, 300);
   };
 
   return (
@@ -174,7 +149,6 @@ function Header() {
       <Nav>
         <LogoWrapper onClick={handleLogoClick}>
           <LogoText isAnimating={isAnimating}>JuanZdev</LogoText>
-          <LogoSymbol isAnimating={isAnimating} />
         </LogoWrapper>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
