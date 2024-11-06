@@ -200,7 +200,7 @@ function Experience() {
             <>
               Currently working as a Full-Stack Laravel developer at a financial
               loan app called <b>Koinsya</b> & <b>adminKoinsya</b>, implementing
-              bank apis, new funcionalities and migrating DB from mysql to AWS
+              bank apis, new funcionalities and migrating DB from mySQL to AWS
               Cloud.
             </>
           ),
@@ -228,9 +228,6 @@ function Experience() {
                     {skill}
                     <SkillIcon
                       src={`/${
-                        skill === "laravel"
-                          ? "laravel"
-                          :
                         skill === "HTML"
                           ? "html5"
                           : skill === "CSS"
