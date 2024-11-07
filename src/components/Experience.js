@@ -165,7 +165,7 @@ function Experience() {
               funcionalidades y migrando la base de datos de MySQL a AWS Cloud.
             </>
           ),
-          skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"],
+          skills: ["Laravel 11", "PHP", "taildwindcss", "MySQL", "aws"],
         },
       ],
     },
@@ -204,7 +204,7 @@ function Experience() {
               Cloud.
             </>
           ),
-          skills: ["PHP", "Laravel", "TailwindCSS", "MySQL", "AWS"],
+          skills: ["PHP", "Laravel", "tailwindcss", "MySQL", "aws"],
         },
       ],
     },
