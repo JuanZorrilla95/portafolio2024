@@ -25,106 +25,106 @@ const ExperienceWrapper = styled.section`
 `;
 
 const ExperienceContent = styled.div`
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 `;
 
 const Title = styled.h2`
-    color: #333;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 
-    @media (max-width: 768px) {
-        font-size: 2rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 
-    @media (max-width: 480px) {
-        font-size: 1.8rem;
-    }
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const Description = styled.p`
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 
-    @media (max-width: 768px) {
-        font-size: 1rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 
-    @media (max-width: 480px) {
-        font-size: 0.9rem;
-    }
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const SkillsList = styled.ul`
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 `;
 
 const SkillItem = styled.li`
-    background-color: #e9ecef;
-    color: #495057;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 500;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
 
-    @media (max-width: 768px) {
-        padding: 0.3rem 0.8rem;
-    }
+  @media (max-width: 768px) {
+    padding: 0.3rem 0.8rem;
+  }
 `;
 
 const SkillIcon = styled.img`
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    width: 24px;
-    height: 24px;
-    transition: all 0.3s ease;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
 
-    ${SkillItem}:hover & {
-        transform: translateX(-50%) scale(1);
-    }
+  ${SkillItem}:hover & {
+    transform: translateX(-50%) scale(1);
+  }
 `;
 
 const StyledLink = styled.a`
-    color: #007bff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
+  color: #007bff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
 
-    &:hover {
-        color: #0056b3;
-    }
+  &:hover {
+    color: #0056b3;
+  }
 
-    img {
-        margin-left: 5px;
-        transition: transform 0.3s ease;
-    }
+  img {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
 
-    &:hover img {
-        transform: translateX(3px);
-    }
+  &:hover img {
+    transform: translateX(3px);
+  }
 `;
 
 const ExperienceItem = styled.div`
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 `;
 
 function Experience() {
