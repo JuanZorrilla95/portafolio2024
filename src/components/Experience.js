@@ -60,12 +60,12 @@ const Description = styled.p`
 `;
 
 const SkillsList = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 `;
 
 const SkillItem = styled.li`
@@ -165,7 +165,7 @@ function Experience() {
               funcionalidades y migrando la base de datos de MySQL a AWS Cloud.
             </>
           ),
-          skills: ["Laravel 11", "PHP", "taildwindcss", "MySQL", "aws"],
+          skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"],
         },
       ],
     },
@@ -210,44 +210,44 @@ function Experience() {
     },
   };
 
-  return (
-    <ExperienceWrapper id="experience">
-      <ExperienceContent>
-        <Title>{content[language].title}</Title>
-        {content[language].experiences.map((experience, index) => (
-          <React.Fragment key={index}>
-            <ExperienceItem>
-              <Description>{experience.description}</Description>
-              <SkillsList>
-                {experience.skills.map((skill, skillIndex) => (
-                  <SkillItem
-                    key={skillIndex}
-                    onMouseEnter={() => setHoveredSkill(skill)}
-                    onMouseLeave={() => setHoveredSkill(null)}
-                  >
-                    {skill}
-                    <SkillIcon
-                      src={`/${
-                        skill === "HTML"
-                          ? "html5"
-                          : skill === "CSS"
-                          ? "css3"
-                          : skill.toLowerCase().replace(/[.\s]/g, "")
-                      }.png`}
-                      alt={`${skill} icon`}
-                      style={{ opacity: hoveredSkill === skill ? 1 : 0 }}
-                    />
-                  </SkillItem>
-                ))}
-              </SkillsList>
-            </ExperienceItem>
-            {index < content[language].experiences.length - 1 && <Separator />}
-          </React.Fragment>
-        ))}
-      </ExperienceContent>
-      <ScrollToTopButton />
-    </ExperienceWrapper>
-  );
+return (
+	<ExperienceWrapper id="experience">
+	<ExperienceContent>
+		<Title>{content[language].title}</Title>
+		{content[language].experiences.map((experience, index) => (
+		<React.Fragment key={index}>
+			<ExperienceItem>
+			<Description>{experience.description}</Description>
+			<SkillsList>
+				{experience.skills.map((skill, skillIndex) => (
+				<SkillItem
+					key={skillIndex}
+					onMouseEnter={() => setHoveredSkill(skill)}
+					onMouseLeave={() => setHoveredSkill(null)}
+				>
+					{skill}
+					<SkillIcon
+					src={`/${
+						skill === "HTML"
+						? "html5"
+						: skill === "CSS"
+						? "css3"
+						: skill.toLowerCase().replace(/[.\s]/g, "")
+					}.png`}
+					alt={`${skill} icon`}
+					style={{ opacity: hoveredSkill === skill ? 1 : 0 }}
+					/>
+				</SkillItem>
+				))}
+			</SkillsList>
+			</ExperienceItem>
+			{index < content[language].experiences.length - 1 && <Separator />}
+		</React.Fragment>
+		))}
+	</ExperienceContent>
+	<ScrollToTopButton />
+	</ExperienceWrapper>
+);
 }
 
 export default Experience;
