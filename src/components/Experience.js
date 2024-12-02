@@ -204,7 +204,7 @@ function Experience() {
               Cloud.
             </>
           ),
-          skills: ["PHP", "Laravel", "tailwindcss", "MySQL", "aws"],
+          skills: ["PHP", "Laravel", "TailwindCSS", "MySQL", "AWS"],
         },
       ],
     },
