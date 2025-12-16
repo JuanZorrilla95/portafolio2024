@@ -113,8 +113,8 @@ const MenuButton = styled.button`
 
 function Header() {
   const { language, setLanguage } = useContext(LanguageContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(true);
+  // const [isAnimating, setIsAnimating] = useState(true);
 
   const navItems = {
     en: [
@@ -137,23 +137,23 @@ function Header() {
     setLanguage(language === 'en' ? 'es' : 'en');
   };
 
-  const handleLogoClick = () => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 300);
-  };
+  // const handleLogoClick = () => {
+  //   setIsAnimating(true);
+  //   setTimeout(() => {
+  //     setIsAnimating(false);
+  //   }, 300);
+  // };
 
   return (
     <HeaderWrapper>
       <Nav>
-        <LogoWrapper onClick={handleLogoClick}>
-          <LogoText isAnimating={isAnimating}>JuanZdev</LogoText>
+        <LogoWrapper >
+          <LogoText >JuanZdev</LogoText>
         </LogoWrapper>
-        <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {/* <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
-        </MenuButton>
-        <NavLinks isOpen={isMenuOpen}>
+        </MenuButton> */}
+        <NavLinks >
           {navItems[language].map((item) => (
             <NavItem key={item.to}>
               <NavLink to={item.to} smooth={true} duration={500}>

@@ -10,6 +10,7 @@ const Separator = styled.div`
   margin: 2rem 0;
   opacity: 0.5;
 `;
+
 const ExperienceWrapper = styled.section`
   position: relative;
   background-color: #f8f9fa;
@@ -60,12 +61,12 @@ const Description = styled.p`
 `;
 
 const SkillsList = styled.ul`
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 `;
 
 const SkillItem = styled.li`
@@ -81,10 +82,6 @@ const SkillItem = styled.li`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    padding: 0.3rem 0.8rem;
   }
 `;
 
@@ -107,19 +104,9 @@ const StyledLink = styled.a`
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #0056b3;
-  }
 
   img {
     margin-left: 5px;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover img {
-    transform: translateX(3px);
   }
 `;
 
@@ -130,6 +117,7 @@ const ExperienceItem = styled.div`
 function Experience() {
   const { language } = useContext(LanguageContext);
   const [hoveredSkill, setHoveredSkill] = useState(null);
+
   const content = {
     es: {
       title: "Experiencia laboral",
@@ -137,8 +125,20 @@ function Experience() {
         {
           description: (
             <>
-              Trabajé como Full-Stack Developer en el <b>Ministerio de Salud</b>{" "}
-              (Santa Fe - Argentina) en un proyecto llamado{" "}
+              Desarrollador Backend en <b>Onus Sistemas</b>, trabajando en
+              aplicaciones empresariales, mantenimiento evolutivo y correctivo,
+              optimización de consultas SQL y desarrollo de nuevas
+              funcionalidades orientadas a procesos administrativos y
+              contables.
+            </>
+          ),
+          skills: ["PHP", "MySQL", "SQL", "Javascript", "HTML", "CSS"],
+        },
+        {
+          description: (
+            <>
+              Full-Stack Developer en el <b>Ministerio de Salud</b> (Santa Fe -
+              Argentina) en el proyecto{" "}
               <StyledLink
                 href="https://www.santafe.gob.ar/ms/gcsalud/"
                 target="_blank"
@@ -159,10 +159,10 @@ function Experience() {
         {
           description: (
             <>
-              Actualmente trabajando como desarrollador Full-Stack Laravel en
-              una aplicación de préstamos financieros llamada <b>Koinsya</b> y{" "}
-              <b>adminKoinsya</b>, implementando APIs de bancos, nuevas
-              funcionalidades y migrando la base de datos de MySQL a AWS Cloud.
+              Full-Stack Developer en una aplicación de préstamos financieros
+              llamada <b>Koinsya</b> y <b>adminKoinsya</b>, integrando APIs
+              bancarias, desarrollando nuevas funcionalidades y migrando la base
+              de datos de MySQL a AWS Cloud.
             </>
           ),
           skills: ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"],
@@ -175,9 +175,19 @@ function Experience() {
         {
           description: (
             <>
-              I worked as a Full-Stack Developer at the{" "}
-              <b>Ministry of Health</b> (Santa Fe - Argentina) on a project
-              called{" "}
+              Backend Developer at <b>Onus Sistemas</b>, working on enterprise
+              applications, evolutionary and corrective maintenance, SQL query
+              optimization, and development of new features focused on
+              administrative and accounting processes.
+            </>
+          ),
+          skills: ["PHP", "MySQL", "SQL", "Javascript", "HTML", "CSS"],
+        },
+        {
+          description: (
+            <>
+              Full-Stack Developer at the <b>Ministry of Health</b> (Santa Fe -
+              Argentina) on the{" "}
               <StyledLink
                 href="https://www.santafe.gob.ar/ms/gcsalud/"
                 target="_blank"
@@ -190,7 +200,8 @@ function Experience() {
                   width="16"
                   height="16"
                 />
-              </StyledLink>
+              </StyledLink>{" "}
+              project.
             </>
           ),
           skills: ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"],
@@ -198,56 +209,60 @@ function Experience() {
         {
           description: (
             <>
-              Currently working as a Full-Stack Laravel developer at a financial
-              loan app called <b>Koinsya</b> & <b>adminKoinsya</b>, implementing
-              bank apis, new funcionalities and migrating DB from mySQL to AWS
-              Cloud.
+              Full-Stack Laravel Developer at a financial loan application called{" "}
+              <b>Koinsya</b> & <b>adminKoinsya</b>, implementing bank APIs,
+              building new features, and migrating the database from MySQL to
+              AWS Cloud.
             </>
           ),
-          skills: ["PHP", "Laravel", "TailwindCSS", "MySQL", "AWS"],
+          skills: ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS"],
         },
       ],
     },
   };
 
-return (
-	<ExperienceWrapper id="experience">
-	<ExperienceContent>
-		<Title>{content[language].title}</Title>
-		{content[language].experiences.map((experience, index) => (
-		<React.Fragment key={index}>
-			<ExperienceItem>
-			<Description>{experience.description}</Description>
-			<SkillsList>
-				{experience.skills.map((skill, skillIndex) => (
-				<SkillItem
-					key={skillIndex}
-					onMouseEnter={() => setHoveredSkill(skill)}
-					onMouseLeave={() => setHoveredSkill(null)}
-				>
-					{skill}
-					<SkillIcon
-					src={`/${
-						skill === "HTML"
-						? "html5"
-						: skill === "CSS"
-						? "css3"
-						: skill.toLowerCase().replace(/[.\s]/g, "")
-					}.png`}
-					alt={`${skill} icon`}
-					style={{ opacity: hoveredSkill === skill ? 1 : 0 }}
-					/>
-				</SkillItem>
-				))}
-			</SkillsList>
-			</ExperienceItem>
-			{index < content[language].experiences.length - 1 && <Separator />}
-		</React.Fragment>
-		))}
-	</ExperienceContent>
-	<ScrollToTopButton />
-	</ExperienceWrapper>
-);
+  return (
+    <ExperienceWrapper id="experience">
+      <ExperienceContent>
+        <Title>{content[language].title}</Title>
+
+        {content[language].experiences.map((experience, index) => (
+          <React.Fragment key={index}>
+            <ExperienceItem>
+              <Description>{experience.description}</Description>
+
+              <SkillsList>
+                {experience.skills.map((skill, skillIndex) => (
+                  <SkillItem
+                    key={skillIndex}
+                    onMouseEnter={() => setHoveredSkill(skill)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                  >
+                    {skill}
+                    <SkillIcon
+                      src={`/${
+                        skill === "HTML"
+                          ? "html5"
+                          : skill === "CSS"
+                          ? "css3"
+                          : skill.toLowerCase().replace(/[.\s]/g, "")
+                      }.png`}
+                      alt={`${skill} icon`}
+                      style={{ opacity: hoveredSkill === skill ? 1 : 0 }}
+                    />
+                  </SkillItem>
+                ))}
+              </SkillsList>
+            </ExperienceItem>
+
+            {index < content[language].experiences.length - 1 && <Separator />}
+          </React.Fragment>
+        ))}
+      </ExperienceContent>
+
+      <ScrollToTopButton />
+    </ExperienceWrapper>
+  );
 }
 
 export default Experience;
