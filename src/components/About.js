@@ -25,7 +25,7 @@ const itemVariants = {
 const highlightsEs = [
   { icon: FiCode, title: '3.5+ a\u00f1os', description: 'de experiencia en desarrollo Full-Stack' },
   { icon: FiZap, title: 'Aprendizaje continuo', description: 'Siempre explorando nuevas tecnolog\u00edas' },
-  { icon: FiCoffee, title: 'Automatizo', description: 'procesos digitales de empresas' },
+  { icon: FiCoffee, title: 'Automatizo', description: 'procesos digitales de empresas con empresas B2B' },
 ];
 
 const highlightsEn = [
