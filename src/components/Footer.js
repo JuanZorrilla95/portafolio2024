@@ -1,94 +1,59 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import { LanguageContext } from './LanguageContext';
-
-const FooterWrapper = styled.footer`
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  padding: 2rem 0;
-
-  @media (max-width: 768px) {
-    padding: 1rem 0;
-  }
-`;
-
-const FooterContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0 2rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 1rem;
-  }
-`;
-
-const Copyright = styled.p`
-  font-size: 0.9rem;
-  margin: 0;
-
-  @media (max-width: 768px) {
-    margin-bottom: 1rem;
-  }
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-
-  @media (max-width: 768px) {
-    margin-top: 1rem;
-  }
-`;
-
-const SocialLink = styled.a`
-  color: #ecf0f1;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #3498db;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { FiGithub, FiLinkedin, FiHeart } from 'react-icons/fi';
 
 function Footer() {
-  const { language } = useContext(LanguageContext);
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
-  const content = {
-    es: {
-      rights: "Todos los derechos reservados."
-    },
-    en: {
-      rights: "All rights reserved."
-    }
-  };
-
   return (
-    <FooterWrapper>
-      <FooterContent>
-        <Copyright>
-          © {currentYear} JuanZdev. {content[language].rights}
-        </Copyright>
-        <SocialLinks>
-          <SocialLink href="https://github.com/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github"></i>
-          </SocialLink>
-          <SocialLink href="https://linkedin.com/in/juanzorrilla95" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
-          </SocialLink>
-        </SocialLinks>
-      </FooterContent>
-    </FooterWrapper>
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 transition-colors duration-300">
+      <div className="section-container">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Logo & Copyright */}
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold mb-2">
+              Juan<span className="gradient-text">Zdev</span>
+            </h3>
+            <p className="text-gray-400 text-sm">
+              &copy; {currentYear} JuanZdev. {t('footer.rights')}
+            </p>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://github.com/juanzorrilla95"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white transition-all"
+            >
+              <FiGithub className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://linkedin.com/in/juanzorrilla95"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white transition-all"
+            >
+              <FiLinkedin className="w-5 h-5" />
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-8 pt-6 border-t border-gray-800">
+          <p className="text-center text-gray-500 text-xs flex items-center justify-center gap-1">
+            Made with <FiHeart className="w-3 h-3 text-red-500" /> using React
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
 

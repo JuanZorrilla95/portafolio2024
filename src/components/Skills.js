@@ -1,226 +1,162 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { LanguageContext } from "./LanguageContext";
+import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { FiMonitor, FiServer, FiTool, FiMessageCircle } from 'react-icons/fi';
 
-const SkillsWrapper = styled.section`
-  background-color: #f0f4f8;
-  padding: 4rem 2rem;
-`;
-
-const SkillsContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const Title = styled.h2`
-  color: #333;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 3rem;
-`;
-
-const SkillCategories = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-`;
-
-const CategoryCard = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const CategoryTitle = styled.h3`
-  color: #007bff;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-`;
-
-const SkillList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-`;
-
-const SkillItem = styled.li`
-  display: flex;
-  align-items: center;
-  color: #333;
-  margin-bottom: 0.5rem;
-  user-select: none;
-`;
-
-const SkillIconLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const SkillIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-`;
-
-const EnglishSkillItem = styled(SkillItem)`
-  &:before {
-    content: "▾";
-    color: #007bff;
-    margin-right: 0.5rem;
-  }
-  user-select: text;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const EnglishLink = styled.a`
-  color: #007bff;
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const Skills = () => {
-  const { language } = useContext(LanguageContext);
-
-  const content = {
-    es: {
-      title: "Skills probadas",
-      categories: {
-        Frontend: "Frontend",
-        Backend: "Backend",
-        Herramientas: "Herramientas",
-        Inglés: "Nivel de Inglés:",
-      },
-    },
-    en: {
-      title: "Proven skills",
-      categories: {
-        Frontend: "Frontend",
-        Backend: "Backend",
-        Herramientas: "Tools",
-        Inglés: "My English level:",
-      },
-    },
-  };
-
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        { name: "HTML5", icon: "/html5.png", url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" },
-        { name: "CSS3", icon: "/css3.png", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-        { name: "JavaScript", icon: "/javascript.png", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-        { name: "React", icon: "/react.png", url: "https://reactjs.org/" },
-        { name: "Angular", icon: "/angular.png", url: "https://angular.io/" },
-      ],
-    },
-    {
-      title: "Backend",
-      skills: [
-        { name: "MySQL", icon: "/mysql.png", url: "https://www.mysql.com/" },
-        { name: "PHP", icon: "/php.png", url: "https://www.php.net/" },
-        { name: "PostgreSQL", icon: "/postgresql.png", url: "https://www.postgresql.org/" },
-        { name: "Python", icon: "/python.png", url: "https://www.python.org/" },
-        { name: "Node.js", icon: "/nodejs.png", url: "https://nodejs.org/" },
-        { name: "API RESTful", icon: "/api.png", url: "https://restfulapi.net/" },
-        { name: "Postman", icon: "/postman.png", url: "https://www.postman.com/" },
-      ],
-    },
-    {
-      title: "Herramientas",
-      skills: [
-        { name: "Git", icon: "/git.png", url: "https://git-scm.com/" },
-        { name: "Gitlab", icon: "/gitlab.png", url: "https://about.gitlab.com/" },
-        { name: "Github", icon: "/github.png", url: "https://github.com/" },
-        { name: "Laravel/Laravel Herd", icon: "/laravel.png", url: "https://laravel.com/" },
-        { name: "Symfony", icon: "/symfony.png", url: "https://symfony.com/" },
-		{ name: "Laragon", icon: "/laragon.png", url: "https://laragon.org/" },
-        { name: "Docker", icon: "/docker.png", url: "https://www.docker.com/" },
-        { name: "Apache", icon: "/apache.png", url: "https://httpd.apache.org/" },
-        { name: "Redmine", icon: "/redmine.png" },
-      ],
-    },
-    {
-        title: "Inglés",
-      skills: {
-        es: [
-          "Entre B2 y C1",
-		  <>
-            <EnglishLink href="https://imgur.com/5U3XP8M" target="_blank" rel="noopener noreferrer">
-				Academia Global Connections (5 años)
-            </EnglishLink>
-          </>,
-          <>
-            EF SET (C1 Avanzado):
-            <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
-              efset.org/cert/EUPSMW
-            </EnglishLink>
-          </>,
-        ],
-        en: [
-          "Between B2 and C1",
-          <>
-            <EnglishLink href="https://imgur.com/5U3XP8M" target="_blank" rel="noopener noreferrer">
-              Global Connections Academy (5 years)
-            </EnglishLink>
-          </>,
-          <>
-            EF SET (C1 Advanced):
-            <EnglishLink href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer">
-              efset.org/cert/EUPSMW
-            </EnglishLink>
-          </>,
-        ],
-      },
-    },
-  ];
-  
-  return (
-    <SkillsWrapper id="skills">
-      <SkillsContent>
-        <Title>{content[language].title}</Title>
-        <SkillCategories>
-          {skillCategories.map((category, index) => (
-            <CategoryCard key={index}>
-              <CategoryTitle>
-                {content[language].categories[category.title]}
-              </CategoryTitle>
-              <SkillList>
-                {category.title === "Inglés"
-                  ? category.skills[language].map((skill, skillIndex) => (
-                      <EnglishSkillItem key={skillIndex}>
-                        {React.isValidElement(skill) ? skill : skill}
-                      </EnglishSkillItem>
-                    ))
-                  : category.skills.map((skill, skillIndex) => (
-                      <SkillItem key={skillIndex}>
-                        <SkillIconLink href={skill.url} target="_blank" rel="noopener noreferrer">
-                          <SkillIcon src={skill.icon} alt={skill.name} />
-                          {skill.name}
-                        </SkillIconLink>
-                      </SkillItem>
-                    ))}
-              </SkillList>
-            </CategoryCard>
-          ))}
-        </SkillCategories>
-      </SkillsContent>
-    </SkillsWrapper>
-  );
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+  },
 };
 
-export default Skills;
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: 'easeOut' },
+  },
+};
+
+const SkillCategories = memo(({ t }) => (
+  <>
+    {/* Frontend */}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+    >
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="p-2 rounded-xl bg-blue-500/10 dark:bg-blue-500/20">
+          <FiMonitor className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
+        </div>
+        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+          {t('skills.categories.Frontend')}
+        </h3>
+      </div>
+      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+        {['HTML5', 'CSS3', 'JavaScript', 'React', 'Angular'].map((name) => (
+          <div key={name} className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 rounded-lg bg-gray-50/50 dark:bg-gray-700/30">
+            <img src={`/${name.toLowerCase()}.png`} alt={name} className="w-3.5 h-3.5 md:w-4 md:h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate">{name}</span>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+
+    {/* Backend */}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+    >
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="p-2 rounded-xl bg-green-500/10 dark:bg-green-500/20">
+          <FiServer className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+        </div>
+        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+          {t('skills.categories.Backend')}
+        </h3>
+      </div>
+      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+        {['MySQL', 'PHP', 'PostgreSQL', 'Node.js', 'API', 'Postman'].map((name) => (
+          <div key={name} className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 rounded-lg bg-gray-50/50 dark:bg-gray-700/30">
+            <img src={`/${name.toLowerCase().replace(/[^a-z]/g, '')}.png`} alt={name} className="w-3.5 h-3.5 md:w-4 md:h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate">{name}</span>
+          </div>
+        ))}
+        <div className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 rounded-lg bg-gray-50/50 dark:bg-gray-700/30">
+          <img src="/python.png" alt="Python" className="w-3.5 h-3.5 md:w-4 md:h-4 object-contain" />
+          <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate">Python</span>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Tools */}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+    >
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="p-2 rounded-xl bg-orange-500/10 dark:bg-orange-500/20">
+          <FiTool className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
+        </div>
+        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+          {t('skills.categories.Tools')}
+        </h3>
+      </div>
+      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+        {['Git', 'GitHub', 'Laravel', 'Symfony', 'Docker', 'Apache', 'Laragon', 'GitLab', 'Redmine'].map((name) => (
+          <div key={name} className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 rounded-lg bg-gray-50/50 dark:bg-gray-700/30">
+            <img src={`/${name.toLowerCase().replace(/[^a-z]/g, '')}.png`} alt={name} className="w-3.5 h-3.5 md:w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+            <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate">{name}</span>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+
+    {/* English */}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+    >
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20">
+          <FiMessageCircle className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
+        </div>
+        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+          {t('skills.categories.English')}
+        </h3>
+      </div>
+      <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-700/30 mb-3">
+        <span className="text-xs md:text-sm font-semibold text-primary-700 dark:text-primary-300">
+          {t('skills.english.level')}
+        </span>
+      </div>
+      <div className="space-y-2">
+        <a href="https://imgur.com/5U3XP8M" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
+          {t('skills.english.academy')}
+        </a>
+        <div className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5" />
+          <span>{t('skills.english.efset')} <a href="https://www.efset.org/cert/EUPSMW" target="_blank" rel="noopener noreferrer" className="text-primary-500 dark:text-primary-400 hover:underline">efset.org/cert/EUPSMW</a></span>
+        </div>
+      </div>
+    </motion.div>
+  </>
+));
+
+function Skills() {
+  const { t } = useTranslation();
+
+  return (
+    <section id="skills" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+      <div className="section-container">
+        <motion.div variants={itemVariants} className="text-center mb-10 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+            {t('skills.title')}
+          </h2>
+          <div className="w-16 h-0.5 md:w-20 md:h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto"
+        >
+          <SkillCategories t={t} />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default memo(Skills);
+

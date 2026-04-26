@@ -1,174 +1,174 @@
-import React, { useContext, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-scroll';
-import { LanguageContext } from './LanguageContext';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiMenu, HiX } from 'react-icons/hi';
+import { FiSun, FiMoon, FiGlobe } from 'react-icons/fi';
 
-const shadowPopTr = keyframes`
-  0% {
-    box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
-    transform: translateX(0) translateY(0);
-  }
-  100% {
-    box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
-    transform: translateX(-8px) translateY(8px);
-  }
-`;
-
-const HeaderWrapper = styled.header`
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-
-const LogoWrapper = styled.div`
-  cursor: pointer;
-  position: relative;
-  height: 2rem;
-  width: 120px;
-  display: flex;
-  align-items: center;
-`;
-
-const LogoText = styled.h1`
-  color: white;
-  font-size: 1.5rem;
-  margin: 0;
-  animation: ${props => props.isAnimating ? shadowPopTr : 'none'} 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-  transition: transform 0.5s ease-out;
-  transform: ${props => props.isAnimating ? 'none' : 'translateX(0) translateY(0)'};
-`;
-
-const NavLinks = styled.ul`
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-  }
-`;
-
-const NavItem = styled.li`
-  margin-left: 1.5rem;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
-  @media (max-width: 768px) {
-    margin: 1rem 0;
-  }
-`;
-
-const NavLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const LanguageButton = styled.button`
-  background-color: transparent;
-  color: white;
-  border: 1px solid white;
-  padding: 0.5rem 1rem;
-  margin-left: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
-  }
-  @media (max-width: 768px) {
-    margin: 1rem 0;
-  }
-`;
-
-const MenuButton = styled.button`
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
+const navKeys = ['about', 'experience', 'skills', 'projects', 'contact'];
 
 function Header() {
-  const { language, setLanguage } = useContext(LanguageContext);
-  // const [isMenuOpen, setIsMenuOpen] = useState(true);
-  // const [isAnimating, setIsAnimating] = useState(true);
+  const { t, i18n } = useTranslation();
+  const { isDark, toggleTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navItems = {
-    en: [
-      { to: "about", text: "About Me" },
-      { to: "experience", text: "Experience" },
-      { to: "skills", text: "Skills" },
-      { to: "projects", text: "Projects" },
-      { to: "contact", text: "Contact" }
-    ],
-    es: [
-      { to: "about", text: "Sobre Mí" },
-      { to: "experience", text: "Experiencia" },
-      { to: "skills", text: "Habilidades" },
-      { to: "projects", text: "Proyectos" },
-      { to: "contact", text: "Contacto" }
-    ],
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'es' : 'en');
+    i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en');
   };
 
-  // const handleLogoClick = () => {
-  //   setIsAnimating(true);
-  //   setTimeout(() => {
-  //     setIsAnimating(false);
-  //   }, 300);
-  // };
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
 
   return (
-    <HeaderWrapper>
-      <Nav>
-        <LogoWrapper >
-          <LogoText >JuanZdev</LogoText>
-        </LogoWrapper>
-        {/* <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
-        </MenuButton> */}
-        <NavLinks >
-          {navItems[language].map((item) => (
-            <NavItem key={item.to}>
-              <NavLink to={item.to} smooth={true} duration={500}>
-                {item.text}
-              </NavLink>
-            </NavItem>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
+      <nav className="section-container flex items-center justify-between h-16 md:h-20">
+        {/* Logo */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <h1 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+            scrolled
+              ? 'text-gray-900 dark:text-white'
+              : 'text-white'
+          }`}>
+            Juan<span className="gradient-text">Zdev</span>
+          </h1>
+        </motion.div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-1">
+          {navKeys.map((key) => (
+            <motion.button
+              key={key}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection(key)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                scrolled
+                  ? 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20'
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {t(`nav.${key}`)}
+            </motion.button>
           ))}
-          <NavItem>
-            <LanguageButton onClick={toggleLanguage}>
-              {language === 'en' ? 'ES' : 'EN'}
-            </LanguageButton>
-          </NavItem>
-        </NavLinks>
-      </Nav>
-    </HeaderWrapper>
+
+          {/* Language Toggle */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleLanguage}
+            className={`ml-2 p-2 rounded-lg transition-all duration-300 ${
+              scrolled
+                ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            }`}
+            title={i18n.language === 'en' ? 'Cambiar a Espa\u00f1ol' : 'Switch to English'}
+          >
+            <FiGlobe className="w-5 h-5" />
+          </motion.button>
+
+          {/* Theme Toggle */}
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 180 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleTheme}
+            className={`p-2 rounded-lg transition-all duration-300 ${
+              scrolled
+                ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+          </motion.button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="flex items-center gap-2 md:hidden">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleLanguage}
+            className={`p-2 rounded-lg ${
+              scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-white'
+            }`}
+          >
+            <FiGlobe className="w-5 h-5" />
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleTheme}
+            className={`p-2 rounded-lg ${
+              scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-white'
+            }`}
+          >
+            {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className={`p-2 rounded-lg ${
+              scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-white'
+            }`}
+          >
+            {isOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
+          </motion.button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200/50 dark:border-gray-700/50"
+          >
+            <div className="section-container py-4 flex flex-col gap-1">
+              {navKeys.map((key, index) => (
+                <motion.button
+                  key={key}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={() => scrollToSection(key)}
+                  className="text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-500 font-medium transition-all"
+                >
+                  {t(`nav.${key}`)}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
 
