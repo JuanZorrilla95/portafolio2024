@@ -118,14 +118,14 @@ const resources = {
       // Hero
       hero: {
         title: 'Bienvenidos a mi portafolio',
-        subtitle: 'Soy un desarrollador Full-Stack apasionado por crear experiencias web atractivas y eficientes.',
+        subtitle: 'Soy desarrollador de Software. Automatizo procesos, creo experiencias web atractivas y eficientes para los usuarios.',
         cta: 'Ver mis proyectos',
         contact: 'Cont\u00e1ctame',
       },
       // About
       about: {
         title: 'Sobre m\u00ed',
-        description: 'Soy un desarrollador web full-stack y un apasionado por crear aplicaciones web innovadoras y eficientes. Me encanta aprender nuevas tecnolog\u00edas y resolver problemas. Cuando no estoy codeando, disfruto de actividad f\u00edsica como basquet y calistenia.',
+        description: 'Soy un desarrollador web full-stack. Desarrollo sistemas y aplicaciones web. Ya sea sitios web, apps moviles o aplicaciones web innovadoras y eficientes. Creo que el futuro de la profesion está en la especializacion, la seguridad y los sistemas de diseño.',
       },
       // Experience
       experience: {
@@ -173,7 +173,7 @@ const resources = {
       },
       // Skills
       skills: {
-        title: 'Skills probadas',
+        title: 'Skills',
         categories: {
           Frontend: 'Frontend',
           Backend: 'Backend',
@@ -212,8 +212,8 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
-  fallbackLng: 'en',
+  lng: 'es',
+  fallbackLng: 'es',
   interpolation: {
     escapeValue: false,
   },

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useMemo } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { HelmetProvider } from 'react-helmet-async';
-import { Helmet } from 'react-helmet-async';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
@@ -26,14 +26,17 @@ const queryClient = new QueryClient({
 });
 
 // renderizado de los componentes principales con React.lazy para optimizar la carga inicial
-const Hero = lazy(() => import(/*  */ './components/Hero'));
-const About = lazy(() => import(/*  "about" */ './components/About'));
-const Experience = lazy(() => import(/*  "experience" */ './components/Experience'));
-const Projects = lazy(() => import(/*  "projects" */ './components/Projects'));
-const Skills = lazy(() => import(/*  "skills" */ './components/Skills'));
-const Contact = lazy(() => import(/*  "contact" */ './components/Contact'));
-const Footer = lazy(() => import(/*  "footer" */ './components/Footer'));
+const Hero       = lazy(() => import(/* webpackChunkName: "hero" */       './components/Hero'));
+const About      = lazy(() => import(/* webpackChunkName: "about" */      './components/About'));
+const Experience = lazy(() => import(/* webpackChunkName: "experience" */ './components/Experience'));
+const Projects   = lazy(() => import(/* webpackChunkName: "projects" */   './components/Projects'));
+const Skills     = lazy(() => import(/* webpackChunkName: "skills" */     './components/Skills'));
+const Contact    = lazy(() => import(/* webpackChunkName: "contact" */    './components/Contact'));
+const Footer     = lazy(() => import(/* webpackChunkName: "footer" */     './components/Footer'));
 
+const SectionSkeleton = () => (
+    <div className="w-full h-64 animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg my-4"  />
+    );
 function AppContent() {
   const { t } = useTranslation();
 
@@ -41,10 +44,6 @@ function AppContent() {
     title: 'JuanZdev - Full-Stack Developer Portfolio',
     description: t('hero.subtitle'),
     keywords: 'Full-Stack Developer, React, Laravel, PHP, JavaScript, Portfolio, JuanZdev',
-    ogTitle: 'JuanZdev - Full-Stack Developer Portfolio',
-    ogDescription: t('hero.subtitle'),
-    twitterTitle: 'JuanZdev - Full-Stack Developer Portfolio',
-    twitterDescription: t('hero.subtitle'),
   }), [t]);
 
   return (
@@ -63,15 +62,34 @@ function AppContent() {
 
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
-        <Suspense fallback={<LoadingSpinner />}>
-          <main>
+        <main>
+          
+          <Suspense fallback={<LoadingSpinner />}>
             <Hero />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton />}>
             <About />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton />}>
             <Experience />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton />}>
             <Projects />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton />}>
             <Skills />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton />}>
             <Contact />
-          </main>
+          </Suspense>
+        </main>
+
+        <Suspense fallback={null}>
           <Footer />
         </Suspense>
         <ScrollToTopButton />
