@@ -49,7 +49,7 @@ function Footer() {
         {/* Divider */}
         <div className="mt-8 pt-6 border-t border-gray-800">
           <p className="text-center text-gray-500 text-xs flex items-center justify-center gap-1">
-            Made with <FiHeart className="w-3 h-3 text-red-500" /> using React
+            Made with <FiHeart className="w-3 h-3 text-red-500" /> and my brain
           </p>
         </div>
       </div>
