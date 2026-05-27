@@ -41,7 +41,7 @@ function AppContent() {
   const { t } = useTranslation();
 
   const helmetContent = useMemo(() => ({
-    title: 'JuanZdev - Full-Stack Developer Portfolio',
+    title: 'JuanZdev - Software Developer Portfolio',
     description: t('hero.subtitle'),
     keywords: 'Full-Stack Developer, React, Laravel, PHP, JavaScript, Portfolio, JuanZdev',
   }), [t]);
