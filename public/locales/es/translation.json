@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "Sobre Mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Bienvenidos a mi portafolio",
+    "subtitle": "Soy desarrollador de Software. Automatizo procesos, creo experiencias web atractivas y eficientes para los usuarios.",
+    "cta": "Ver mis proyectos",
+    "contact": "Contactáme"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "description": "Soy un desarrollador web full-stack. Desarrollo sistemas y aplicaciones web. Ya sea sitios web, apps moviles o aplicaciones web innovadoras y eficientes. Creo que el futuro de la profesión está en la especialización, la seguridad y los sistemas de diseño."
+  },
+  "experience": {
+    "title": "Experiencia laboral",
+    "experiences": [
+      {
+        "company": "Onus Sistemas",
+        "role": "Desarrollador Backend",
+        "description": "Trabajé en aplicaciones empresariales, mantenimiento evolutivo y correctivo, optimización de consultas SQL y desarrollo de nuevas funcionalidades orientadas a procesos administrativos y contables.",
+        "skills": ["PHP", "MySQL", "SQL", "Javascript", "React Native", "Expo", "TSX"]
+      },
+      {
+        "company": "Ministerio de Salud",
+        "role": "Desarrollador Full-Stack",
+        "description": "Desarrollador Full-Stack en el Ministerio de Salud (Santa Fe - Argentina) en el proyecto GC Salud.",
+        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"],
+        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
+      },
+      {
+        "company": "Koinsya",
+        "role": "Desarrollador Full-Stack Laravel",
+        "description": "Desarrollador Full-Stack en una aplicación de préstamos financieros llamada Koinsya y adminKoinsya, integrando APIs bancarias, desarrollando nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.",
+        "skills": ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "viewMore": "Ver más",
+    "items": [
+      {
+        "title": "Nadá en Punta",
+        "description": "Sistema de gestión de eventos para nadadores con diferentes tipos de inscripción"
+      },
+      {
+        "title": "Motor de automatización de facturas",
+        "description": "Motor de automatización de facturas para una empresa de servicios con generación y envío automático de facturas a los clientes."
+      },
+      {
+        "title": "GYM Kumbia-PHP",
+        "description": "Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Tools": "Herramientas",
+      "English": "Nivel de Inglés:"
+    },
+    "english": {
+      "level": "Entre B2 y C1",
+      "academy": "Academia Global Connections (5 años)",
+      "efset": "EF SET (C1 Avanzado):"
+    }
+  },
+  "contact": {
+    "title": "Contactáme",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sent": "Mensaje enviado",
+    "sending": "Enviando...",
+    "successToast": "Mensaje enviado exitosamente!",
+    "errorToast": "Error al enviar el mensaje. Inténtalo de nuevo.",
+    "nameRequired": "El nombre es obligatorio",
+    "emailRequired": "El email es obligatorio",
+    "emailInvalid": "Ingresa un email válido",
+    "messageRequired": "El mensaje es obligatorio"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}
