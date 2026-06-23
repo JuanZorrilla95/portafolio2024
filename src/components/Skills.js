@@ -27,7 +27,7 @@ const SkillIcon = memo(({ name, src }) => (
       width={16}
       height={16}
       loading="lazy"                         
-      decoding="async"                       // no bloquea el hilo principal.
+      decoding="async"                       // no bloquea el hilo principal..
       className="w-3.5 h-3.5 md:w-4 md:h-4 object-contain"
       onError={(e) => { e.target.style.display = "none"; }}
     />
