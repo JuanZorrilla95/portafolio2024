@@ -38,7 +38,7 @@ function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-100 ${
         scrolled
           ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
           : 'bg-transparent'
@@ -52,7 +52,7 @@ function Header() {
           className="cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <h1 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+          <h1 className={`text-xl md:text-2xl font-bold transition-colors duration-200 ${
             scrolled
               ? 'text-gray-900 dark:text-white'
               : 'text-white'
@@ -69,7 +69,7 @@ function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection(key)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 scrolled
                   ? 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20'
                   : 'text-white/90 hover:text-white hover:bg-white/10'
@@ -84,7 +84,7 @@ function Header() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleLanguage}
-            className={`ml-2 p-2 rounded-lg transition-all duration-300 ${
+            className={`ml-2 p-2 rounded-lg transition-all duration-200 ${
               scrolled
                 ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
                 : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -99,10 +99,10 @@ function Header() {
             whileHover={{ scale: 1.1, rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className={`p-2 rounded-lg transition-all duration-300 ${
+            className={`p-2 rounded-lg  ${
               scrolled
-                ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'text-gray-600 dark:text-gray-400 '
+                : 'text-white/80 '
             }`}
           >
             {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}

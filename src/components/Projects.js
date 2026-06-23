@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
-
+//quitar espacioM y gym kumbia. agregar nadaenpunta y motordeautomatizaciones de python
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -16,22 +16,22 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.1, ease: 'easeOut' },
   },
 };
 
 const projectsData = [
   {
-    image: 'https://github.com/JuanZorrilla95/ChocolateShop/blob/ChocolateShopMain/public/chocolate.png?raw=true',
-    link: 'https://github.com/JuanZorrilla95/chocolateshop',
-    isGithub: true,
-    tags: ['Laravel 11', 'PHP', 'MySQL'],
+    image: './nadaenpunta.png',
+    link: 'https://www.nadaenpunta.com',
+    // isGithub: true,
+    tags: ['PHP', 'MySQL', 'JavaScript'],
   },
   {
-    image: 'https://raw.githubusercontent.com/JuanZorrilla95/espacioM/main/images/yoga.ico',
-    link: 'https://juanzorrilla95.github.io/espacioM/',
-    isGithub: false,
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    // image: 'https://github.com/JuanZorrilla95/motorAutomatizacionPython',
+    link: 'https://github.com/JuanZorrilla95/motorAutomatizacionPython',
+    isGithub: true,
+    tags: ['Laravel 11', 'PHP', 'MySQL'],
   },
   {
     image: './logogym.png',
@@ -45,13 +45,13 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
   <motion.div
     variants={cardVariants}
     whileHover={{ y: -8 }}
-    className="group glass-card overflow-hidden hover:shadow-2xl transition-all duration-500"
+    className="group glass-card overflow-hidden hover:shadow-2xl transition-all duration-300"
   >
     <div className="relative h-40 md:h-52 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden flex items-center justify-center">
       <img
         src={project.image}
         alt={translated.title}
-        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
         loading="lazy"
         onError={(e) => {
           const img = e.target;
