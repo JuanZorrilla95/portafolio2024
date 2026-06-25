@@ -40,7 +40,7 @@ const ExperienceItemContent = memo(({ exp }) => (
               href={exp.link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 ml-2 text-accent-500 hover:text-accent-600 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1 ml-2 text-accent-500"
             >
               {exp.link.text}
               <FiExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />

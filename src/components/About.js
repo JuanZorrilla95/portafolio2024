@@ -57,7 +57,7 @@ function About() {
   const highlights = i18n.language === 'es' ? highlightsEs : highlightsEn;
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="about" className="py-20 md:py-28 bg-white dark:bg-gray-200 transition-colors duration-300">
       <motion.div
         variants={containerVariants}
         initial="hidden"
