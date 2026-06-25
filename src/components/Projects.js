@@ -28,7 +28,7 @@ const projectsData = [
     tags: ['PHP', 'MySQL', 'JavaScript'],
   },
   {
-    // image: 'https://github.com/JuanZorrilla95/motorAutomatizacionPython',
+    image: './portadapython.png',
     link: 'https://github.com/JuanZorrilla95/motorAutomatizacionPython',
     isGithub: true,
     tags: ['Laravel 11', 'PHP', 'MySQL'],
