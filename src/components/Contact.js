@@ -165,13 +165,13 @@ function Contact() {
               )}
             </div>
 
-            {/* Submit Button */}
+            
             <motion.button
               whileHover={!isSubmitted && !isSending ? { scale: 1.02 } : {}}
               whileTap={!isSubmitted && !isSending ? { scale: 0.98 } : {}}
               type="submit"
               disabled={isSubmitted || isSending}
-              className={`w-full py-4 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 ${
+              className={`w-full py-4 rounded-xl font-semibold text-white  flex items-center justify-center gap-2 ${
                 isSubmitted
                   ? 'bg-green-500 cursor-default'
                   : isSending

@@ -29,7 +29,7 @@ function Footer() {
               href="https://github.com/juanzorrilla95"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white transition-all"
+              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white"
             >
               <FiGithub className="w-5 h-5" />
             </motion.a>
@@ -39,7 +39,7 @@ function Footer() {
               href="https://linkedin.com/in/juanzorrilla95"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white transition-all"
+              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white"
             >
               <FiLinkedin className="w-5 h-5" />
             </motion.a>

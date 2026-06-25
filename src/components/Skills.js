@@ -71,7 +71,7 @@ const SkillCategories = memo(() => {
           key={label}
           variants={itemVariants}
           whileHover={{ y: -5 }}
-          className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-200"
+          className="glass-card p-4 md:p-6 "
         >
           <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
             <div className={`p-2 rounded-xl ${color}`}>{icon}</div>

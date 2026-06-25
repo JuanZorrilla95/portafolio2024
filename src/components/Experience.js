@@ -23,7 +23,7 @@ const itemVariants = {
 const ExperienceItemContent = memo(({ exp }) => (
   <motion.div
     whileHover={{ y: -3 }}
-    className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+    className="glass-card p-4 md:p-6 "
   >
     <div className="flex items-start gap-2 md:gap-3 mb-3 md:mb-4">
       <div className="p-1.5 md:p-2 rounded-lg bg-primary-500/10 dark:bg-primary-500/20 mt-0.5 flex-shrink-0">
