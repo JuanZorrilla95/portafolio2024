@@ -60,7 +60,7 @@ function AppContent() {
         <meta name="twitter:description" content={helmetContent.twitterDescription} />
       </Helmet>
 
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-gray-900">
         <Header />
         <main>
           
@@ -97,7 +97,7 @@ function AppContent() {
 
       <ToastContainer
         position="bottom-right"
-        autoClose={4000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
