@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { m } from 'framer-motion';
 import { toast } from 'react-toastify';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { FiSend, FiMail, FiUser, FiMessageSquare } from 'react-icons/fi';
 
 const containerVariants = {
@@ -44,7 +44,7 @@ function Contact() {
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        { publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY }
       );
       toast.success(t('contact.successToast'), {
         position: 'bottom-right',
