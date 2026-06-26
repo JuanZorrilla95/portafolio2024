@@ -79,6 +79,12 @@ function Contact() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
         </m.div>
+        {/* SUBTITULO */}
+        <m.div variants={itemVariants} className="text-center m-2 ">
+          <p className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl">
+            {t('contact.subtitle')}
+          </p>
+        </m.div>
 
         {/* Contact Form */}
         <m.div variants={itemVariants} className="max-w-xl mx-auto">
