@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FiSun, FiMoon, FiGlobe } from 'react-icons/fi';
 
@@ -34,7 +34,7 @@ function Header() {
   };
 
   return (
-    <motion.header
+    <m.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -46,7 +46,7 @@ function Header() {
     >
       <nav className="section-container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <motion.div
+        <m.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="cursor-pointer"
@@ -59,12 +59,12 @@ function Header() {
           }`}>
             Juan<span className="gradient-text">Zdev</span>
           </h1>
-        </motion.div>
+        </m.div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-1">
           {navKeys.map((key) => (
-            <motion.button
+            <m.button
               key={key}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -76,11 +76,11 @@ function Header() {
               }`}
             >
               {t(`nav.${key}`)}
-            </motion.button>
+            </m.button>
           ))}
 
           {/* Language Toggle */}
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleLanguage}
@@ -92,10 +92,10 @@ function Header() {
             title={i18n.language === 'en' ? 'Cambiar a Espa\u00f1ol' : 'Switch to English'}
           >
             <FiGlobe className="w-5 h-5" />
-          </motion.button>
+          </m.button>
 
           {/* Theme Toggle */}
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.1, rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
@@ -106,12 +106,12 @@ function Header() {
             }`}
           >
             {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </motion.button>
+          </m.button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <motion.button
+          <m.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleLanguage}
             className={`p-2 rounded-lg ${
@@ -119,8 +119,8 @@ function Header() {
             }`}
           >
             <FiGlobe className="w-5 h-5" />
-          </motion.button>
-          <motion.button
+          </m.button>
+          <m.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
             className={`p-2 rounded-lg ${
@@ -128,8 +128,8 @@ function Header() {
             }`}
           >
             {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </motion.button>
-          <motion.button
+          </m.button>
+          <m.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 rounded-lg ${
@@ -137,14 +137,14 @@ function Header() {
             }`}
           >
             {isOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
-          </motion.button>
+          </m.button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -153,7 +153,7 @@ function Header() {
           >
             <div className="section-container py-4 flex flex-col gap-1">
               {navKeys.map((key, index) => (
-                <motion.button
+                <m.button
                   key={key}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -162,13 +162,13 @@ function Header() {
                   className="text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-500 font-medium "
                 >
                   {t(`nav.${key}`)}
-                </motion.button>
+                </m.button>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </m.header>
   );
 }
 

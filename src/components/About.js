@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FiCode, FiCoffee, FiZap } from 'react-icons/fi';
 
 const containerVariants = {
@@ -35,7 +35,7 @@ const highlightsEn = [
 ];
 
 const HighlightItem = memo(({ item }) => (
-  <motion.div
+  <m.div
     whileHover={{ y: -5, scale: 1.02 }}
     className="glass-card p-6 text-center group hover:shadow-xl transition-all duration-300"
   >
@@ -48,7 +48,7 @@ const HighlightItem = memo(({ item }) => (
     <p className="text-gray-600 dark:text-gray-400 text-sm">
       {item.description}
     </p>
-  </motion.div>
+  </m.div>
 ));
 
 function About() {
@@ -58,32 +58,32 @@ function About() {
 
   return (
     <section id="about" className="py-20 md:py-28 bg-white dark:bg-gray-200 transition-colors duration-300">
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         className="section-container"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <m.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {t('about.title')}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={itemVariants} className="max-w-3xl mx-auto mb-16">
+        <m.div variants={itemVariants} className="max-w-3xl mx-auto mb-16">
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center">
             {t('about.description')}
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <m.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {highlights.map((item, index) => (
             <HighlightItem key={index} item={item} />
           ))}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiHeart } from 'react-icons/fi';
 
 function Footer() {
@@ -23,7 +23,7 @@ function Footer() {
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            <motion.a
+            <m.a
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://github.com/juanzorrilla95"
@@ -32,8 +32,8 @@ function Footer() {
               className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white"
             >
               <FiGithub className="w-5 h-5" />
-            </motion.a>
-            <motion.a
+            </m.a>
+            <m.a
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://linkedin.com/in/juanzorrilla95"
@@ -42,7 +42,7 @@ function Footer() {
               className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white"
             >
               <FiLinkedin className="w-5 h-5" />
-            </motion.a>
+            </m.a>
           </div>
         </div>
 

@@ -11,6 +11,8 @@ import LoadingSpinner from './components/LoadingSpinner';
 import ErrorBoundaryFallback from './components/ErrorBoundaryFallback';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
+import { LazyMotion, domAnimation } from 'framer-motion';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './i18n';
 
@@ -47,52 +49,53 @@ function AppContent() {
   }), [t]);
 
   return (
-    <>
-      <Helmet>
-        <title>{helmetContent.title}</title>
-        <meta name="description" content={helmetContent.description} />
-        <meta name="keywords" content={helmetContent.keywords} />
-        <meta property="og:title" content={helmetContent.ogTitle} />
-        <meta property="og:description" content={helmetContent.ogDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={helmetContent.twitterTitle} />
-        <meta name="twitter:description" content={helmetContent.twitterDescription} />
-      </Helmet>
+	<LazyMotion features={domAnimation} strict>
+		<>
+		<Helmet>
+			<title>{helmetContent.title}</title>
+			<meta name="description" content={helmetContent.description} />
+			<meta name="keywords" content={helmetContent.keywords} />
+			<meta property="og:title" content={helmetContent.ogTitle} />
+			<meta property="og:description" content={helmetContent.ogDescription} />
+			<meta property="og:type" content="website" />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:title" content={helmetContent.twitterTitle} />
+			<meta name="twitter:description" content={helmetContent.twitterDescription} />
+		</Helmet>
+		<div className="min-h-screen bg-white dark:bg-gray-900">
+			<Header />
+			<main>
+			<Suspense fallback={<LoadingSpinner />}>
+				<Hero />
+			</Suspense>
 
-      <div className="min-h-screen bg-white dark:bg-gray-900">
-        <Header />
-        <main>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Hero />
-          </Suspense>
+			<Suspense fallback={<SectionSkeleton />}>
+				<About />
+				<Experience />
+				<Projects />
+				<Skills />
+				<Contact />
+			</Suspense>
+			</main>
 
-          <Suspense fallback={<SectionSkeleton />}>
-            <About />
-            <Experience />
-            <Projects />
-            <Skills />
-            <Contact />
-          </Suspense>
-        </main>
+			<Suspense fallback={null}>
+			<Footer />
+			</Suspense>
+			<ScrollToTopButton />
+		</div>
 
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
-        <ScrollToTopButton />
-      </div>
-
-      <ToastContainer position="bottom-right" autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-    </>
+		<ToastContainer position="bottom-right" autoClose={2000}
+			hideProgressBar={false}
+			newestOnTop
+			closeOnClick
+			rtl={false}
+			pauseOnFocusLoss
+			draggable
+			pauseOnHover
+			theme="colored"
+		/>
+		</>
+	</LazyMotion>
   );
 }
 

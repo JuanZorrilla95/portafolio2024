@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FiMonitor, FiServer, FiTool, FiMessageCircle, FiCode } from "react-icons/fi";
 import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiAngular,
@@ -97,7 +97,7 @@ const SkillCategories = memo(() => {
   return (
     <>
       {categories.map(({ icon, color, label, skills }) => (
-        <motion.div
+        <m.div
           key={label}
           variants={itemVariants}
           whileHover={{ y: -5 }}
@@ -114,11 +114,11 @@ const SkillCategories = memo(() => {
               <SkillIcon key={name} name={name} />
             ))}
           </div>
-        </motion.div>
+        </m.div>
       ))}
 
       {/* English card — sin cambios */}
-      <motion.div
+      <m.div
         variants={itemVariants}
         whileHover={{ y: -5 }}
         className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
@@ -161,7 +161,7 @@ const SkillCategories = memo(() => {
             </span>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </>
   );
 });
@@ -175,7 +175,7 @@ function Skills() {
       className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
     >
       <div className="section-container">
-        <motion.div
+        <m.div
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
@@ -186,9 +186,9 @@ function Skills() {
             {t("skills.title")}
           </h2>
           <div className="w-16 h-0.5 md:w-20 md:h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -196,7 +196,7 @@ function Skills() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto"
         >
           <SkillCategories />
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

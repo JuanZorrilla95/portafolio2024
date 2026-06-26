@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 //quitar espacioM y gym kumbia. agregar nadaenpunta y motordeautomatizaciones de python
 const containerVariants = {
@@ -42,7 +42,7 @@ const projectsData = [
 ];
 
 const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
-  <motion.div
+  <m.div
     variants={cardVariants}
     whileHover={{ y: -8 }}
     className="group glass-card overflow-hidden hover:shadow-2xl transition-all duration-300"
@@ -61,7 +61,7 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 flex items-end justify-center pb-4">
-        <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href={project.link} target="_blank"
+        <m.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href={project.link} target="_blank"
           rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium text-gray-900 dark:text-white backdrop-blur-sm"
         >
           {project.isGithub ? ( <> 
@@ -73,7 +73,7 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
               <FiExternalLink className="w-4 h-4" /> {viewMoreLabel}
             </>
           )}
-        </motion.a>
+        </m.a>
       </div>
     </div>
 
@@ -106,7 +106,7 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
         <FiExternalLink className="w-3.5 h-3.5" />
       </a>
     </div>
-  </motion.div>
+  </m.div>
 ));
 
 function Projects() {
@@ -119,19 +119,19 @@ function Projects() {
       id="projects"
       className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="section-container"
       >
-        <motion.div variants={cardVariants} className="text-center mb-16">
+        <m.div variants={cardVariants} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {t("projects.title")}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
@@ -143,7 +143,7 @@ function Projects() {
             />
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

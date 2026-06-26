@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 
 const ScrollToTopButton = () => {
@@ -20,7 +20,7 @@ const ScrollToTopButton = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
+        <m.button
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -31,7 +31,7 @@ const ScrollToTopButton = () => {
           aria-label="Scroll to top"
         >
           <FiArrowUp className="w-5 h-5" />
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

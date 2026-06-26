@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 import { FiSend, FiMail, FiUser, FiMessageSquare } from 'react-icons/fi';
@@ -65,7 +65,7 @@ function Contact() {
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -73,15 +73,15 @@ function Contact() {
         className="section-container"
       >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <m.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {t('contact.title')}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
-        </motion.div>
+        </m.div>
 
         {/* Contact Form */}
-        <motion.div variants={itemVariants} className="max-w-xl mx-auto">
+        <m.div variants={itemVariants} className="max-w-xl mx-auto">
           <form
             ref={formRef}
             onSubmit={handleSubmit(onSubmit)}
@@ -166,7 +166,7 @@ function Contact() {
             </div>
 
             
-            <motion.button
+            <m.button
               whileHover={!isSubmitted && !isSending ? { scale: 1.02 } : {}}
               whileTap={!isSubmitted && !isSending ? { scale: 0.98 } : {}}
               type="submit"
@@ -197,10 +197,10 @@ function Contact() {
                   {t('contact.send')}
                 </>
               )}
-            </motion.button>
+            </m.button>
           </form>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

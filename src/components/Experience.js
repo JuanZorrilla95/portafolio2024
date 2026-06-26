@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FiBriefcase, FiExternalLink } from 'react-icons/fi';
 
 const containerVariants = {
@@ -21,7 +21,7 @@ const itemVariants = {
 };
 
 const ExperienceItemContent = memo(({ exp }) => (
-  <motion.div
+  <m.div
     whileHover={{ y: -3 }}
     className="glass-card p-4 md:p-6 "
   >
@@ -64,7 +64,7 @@ const ExperienceItemContent = memo(({ exp }) => (
         </span>
       ))}
     </div>
-  </motion.div>
+  </m.div>
 ));
 
 function Experience() {
@@ -73,35 +73,35 @@ function Experience() {
 
   return (
     <section id="experience" className="py-20 md:py-28 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
         className="section-container"
       >
-        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
+        <m.div variants={itemVariants} className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {t('experience.title')}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
-        </motion.div>
+        </m.div>
 
         <div className="max-w-3xl mx-auto relative">
           <div className="absolute left-2 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-accent-500 to-primary-500 opacity-30 hidden sm:block" />
 
           {experiences.map((exp, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className="relative pl-4 sm:pl-12 md:pl-20 pb-8 last:pb-0"
             >
               <div className="absolute left-0 sm:left-6 top-1 w-3 h-3 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 border-2 sm:border-4 border-gray-50 dark:border-gray-800 z-10" />
               <ExperienceItemContent exp={exp} />
-            </motion.div>
+            </m.div>
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }
