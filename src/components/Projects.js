@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import React, { memo } from "react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 //quitar espacioM y gym kumbia. agregar nadaenpunta y motordeautomatizaciones de python
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,28 +16,28 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.1, ease: 'easeOut' },
+    transition: { duration: 0.1, ease: "easeOut" },
   },
 };
 
 const projectsData = [
   {
-    image: './nadaenpunta.png',
-    link: 'https://www.nadaenpunta.com',
+    image: "./nadaenpunta.png",
+    link: "https://www.nadaenpunta.com",
     // isGithub: true,
-    tags: ['PHP', 'MySQL', 'JavaScript'],
+    tags: ["PHP", "MySQL", "JavaScript"],
   },
   {
-    image: './portadapython.png',
-    link: 'https://github.com/JuanZorrilla95/motorAutomatizacionPython',
+    image: "./portadapython.png",
+    link: "https://github.com/JuanZorrilla95/motorAutomatizacionPython",
     isGithub: true,
-    tags: ['Laravel 11', 'PHP', 'MySQL'],
+    tags: ["Laravel 11", "PHP", "MySQL"],
   },
   {
-    image: './logogym.png',
-    link: 'https://github.com/JuanZorrilla95/GYM-KumbiaPHP',
+    image: "./logogym.png",
+    link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
     isGithub: true,
-    tags: ['KumbiaPHP', 'MVC', 'MySQL'],
+    tags: ["KumbiaPHP", "MVC", "MySQL"],
   },
 ];
 
@@ -48,32 +48,30 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
     className="group glass-card overflow-hidden hover:shadow-2xl transition-all duration-300"
   >
     <div className="relative h-40 md:h-52 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden flex items-center justify-center">
-      <img
-        src={project.image}
-        alt={translated.title}
+      <img src={project.image} alt={translated.title}
+	  	width={400} height={200}
         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
         loading="lazy"
         onError={(e) => {
           const img = e.target;
           if (!img.dataset.retried) {
-            img.dataset.retried = '1';
-            img.src = './logogym.png';
+            img.dataset.retried = "1";
+            img.src = "./logogym.png";
           }
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 flex items-end justify-center pb-4">
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium text-gray-900 dark:text-white backdrop-blur-sm"
+        <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href={project.link} target="_blank"
+          rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium text-gray-900 dark:text-white backdrop-blur-sm"
         >
-          {project.isGithub ? (
-            <><FiGithub className="w-4 h-4" />GitHub</>
+          {project.isGithub ? ( <> 
+		  <FiGithub className="w-4 h-4" />
+              GitHub
+            </>
           ) : (
-            <><FiExternalLink className="w-4 h-4" />{viewMoreLabel}</>
+            <>
+              <FiExternalLink className="w-4 h-4" /> {viewMoreLabel}
+            </>
           )}
         </motion.a>
       </div>
@@ -113,21 +111,24 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
 
 function Projects() {
   const { t } = useTranslation();
-  const translatedItems = t('projects.items', { returnObjects: true });
-  const viewMoreLabel = t('projects.viewMore');
+  const translatedItems = t("projects.items", { returnObjects: true });
+  const viewMoreLabel = t("projects.viewMore");
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section
+      id="projects"
+      className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
         className="section-container"
       >
         <motion.div variants={cardVariants} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            {t('projects.title')}
+            {t("projects.title")}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
         </motion.div>
@@ -148,4 +149,3 @@ function Projects() {
 }
 
 export default memo(Projects);
-

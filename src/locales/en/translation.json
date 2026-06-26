@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "About Me",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Welcome to my portfolio",
+    "subtitle": "I'm a Full-Stack developer passionate about creating attractive and efficient web experiences for the users.",
+    "cta": "Check out my projects",
+    "contact": "Get in touch"
+  },
+  "about": {
+    "title": "About me",
+    "description": "I'm a full-stack developer with 3.5 YOE and passionate for creating innovative and efficient web apps. I love learning new technologies and solving problems. When I'm not looking at pixels, I enjoy physical activities like basketball and calisthenics."
+  },
+  "experience": {
+    "title": "Work experience",
+    "experiences": [
+      {
+        "company": "Onus Sistemas",
+        "role": "Backend Developer",
+        "description": "Working on enterprise applications, evolutionary and corrective maintenance, SQL query optimization, and development of new features focused on administrative and accounting processes.",
+        "skills": ["PHP", "MySQL", "SQL", "Javascript", "HTML", "CSS"]
+      },
+      {
+        "company": "Ministry of Health",
+        "role": "Full-Stack Developer",
+        "description": "Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on the GC Salud project.",
+        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"],
+        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
+      },
+      {
+        "company": "Koinsya",
+        "role": "Full-Stack Laravel Developer",
+        "description": "Full-Stack Laravel Developer at a financial loan application called Koinsya & adminKoinsya, implementing bank APIs, building new features, and migrating the database from MySQL to AWS Cloud.",
+        "skills": ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "viewMore": "View more",
+    "items": [
+      {
+        "title": "Nadá en Punta",
+        "description": "Event management system for swimmers with different types of registration"
+      },
+      {
+        "title": "Invoice Automation Engine",
+        "description": "Automation engine for generating and sending invoices to customers for a service company."
+      },
+      {
+        "title": "GYM Kumbia-PHP",
+        "description": "Gym project with class registration, teachers, schedules made with KumbiaPHP and MVC pattern"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "Frontend": "Frontend",
+      "Backend": "Backend",
+      "Tools": "Tools",
+      "English": "My English level:"
+    },
+    "english": {
+      "level": "Between B2 and C1",
+      "academy": "Global Connections Academy (5 years)",
+      "efset": "EF SET (C1 Advanced):"
+    }
+  },
+  "contact": {
+    "title": "Let's get in touch!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sent": "Message Sent",
+    "sending": "Sending...",
+    "successToast": "Message sent successfully!",
+    "errorToast": "Error sending message. Please try again.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "messageRequired": "Message is required"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
