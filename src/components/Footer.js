@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { m } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiHeart } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 
 function Footer() {
   const { t } = useTranslation();
@@ -43,13 +43,26 @@ function Footer() {
             >
               <FiLinkedin className="w-5 h-5" />
             </m.a>
+            <m.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://instagram.com/juanzdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-gray-800 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-700 text-gray-400 hover:text-white"
+            >
+              <FiInstagram className="w-5 h-5" />
+            </m.a>
           </div>
         </div>
+          
+        
 
         {/* Divider */}
         <div className="mt-8 pt-6 border-t border-gray-800">
           <p className="text-center text-gray-500 text-xs flex items-center justify-center gap-1">
-            Made with <FiHeart className="w-3 h-3 text-red-500" /> and my brain
+            {t('divider.text')}            
+            {/* <FiHeart className="w-4 h-4 text-red-500" /> */}
           </p>
         </div>
       </div>

@@ -91,11 +91,10 @@
     "messageRequired": "El mensaje es obligatorio"
   },
   "footer": {
-    "text": "Hecho con ❤️ y mi cerebro",
+
     "rights": "Todos los derechos reservados."
   },
   "divider": {
-    "madeWith": "Hecho con",
-    "andMyBrain": "y mi cerebro"
+    "text": "Hecho con amor ❤️ y mi cerebro"
   }
 }
