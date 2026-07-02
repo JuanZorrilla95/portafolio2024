@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { m } from 'framer-motion';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 import { FiSend, FiMail, FiUser, FiMessageSquare } from 'react-icons/fi';
+import 'react-toastify/dist/ReactToastify.css';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -170,7 +171,16 @@ function Contact() {
                 <p className="mt-1.5 text-sm text-red-500">{errors.message.message}</p>
               )}
             </div>
-
+<ToastContainer position="bottom-right" autoClose={2000}
+			hideProgressBar={false}
+			newestOnTop
+			closeOnClick
+			rtl={false}
+			pauseOnFocusLoss
+			draggable
+			pauseOnHover
+			theme="colored"
+		/>
             
             <m.button
               whileHover={!isSubmitted && !isSending ? { scale: 1.02 } : {}}
