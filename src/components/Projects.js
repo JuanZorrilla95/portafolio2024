@@ -22,19 +22,19 @@ const cardVariants = {
 
 const projectsData = [
   {
-    image: "./nadaenpunta.png",
+    image: "./nadaenpunta.webp",
     link: "https://www.nadaenpunta.com",
     // isGithub: true,
     tags: ["PHP", "MySQL", "JavaScript"],
   },
   {
-    image: "./portadapython.png",
+    image: "./portadapython.webp",
     link: "https://github.com/JuanZorrilla95/motorAutomatizacionPython",
     isGithub: true,
     tags: ["Python", "FastAPI", "MongoDB", "PyTest", "Redis"],
   },
   {
-    image: "./logogym.png",
+    image: "./logogym.webp",
     link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
     isGithub: true,
     tags: ["KumbiaPHP", "MVC", "MySQL"],
@@ -45,18 +45,18 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
   <m.div
     variants={cardVariants}
     whileHover={{ y: -8 }}
-    className="group glass-card overflow-hidden hover:shadow-2xl transition-all duration-300"
+    className="group glass-card overflow-hidden hover:shadow-2xl "
   >
     <div className="relative h-40 md:h-52 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden flex items-center justify-center">
       <img src={project.image} alt={translated.title}
 	  	width={400} height={200}
-        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+        className="w-full h-full object-contain group-hover:scale-110 "
         loading="lazy"
         onError={(e) => {
           const img = e.target;
           if (!img.dataset.retried) {
             img.dataset.retried = "1";
-            img.src = "./logogym.png";
+            img.src = "./logogym.webp";
           }
         }}
       />
@@ -117,7 +117,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 md:py-28 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="py-20 md:py-28 bg-white dark:bg-gray-900 "
     >
       <m.div
         variants={containerVariants}

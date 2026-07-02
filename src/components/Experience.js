@@ -7,7 +7,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -16,7 +16,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.1, ease: 'easeOut' },
   },
 };
 
@@ -72,7 +72,7 @@ function Experience() {
   const experiences = t('experience.experiences', { returnObjects: true });
 
   return (
-    <section id="experience" className="py-20 md:py-28 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section id="experience" className="py-20 md:py-28 bg-gray-50 dark:bg-gray-800 ">
       <m.div
         variants={containerVariants}
         initial="hidden"
