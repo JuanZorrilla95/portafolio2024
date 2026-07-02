@@ -24,7 +24,7 @@
         "role": "Backend Developer",
         "description": "Working on enterprise applications, evolutionary and corrective maintenance, SQL query optimization, and development of new features focused on administrative and accounting processes.",
         "skills": ["PHP", "MySQL", "SQLlite", "React Native", "Expo", "Typescript"],
-        "link": { "url": "https://onus.com.ar/", "text": "Onus Sistemas" }
+        "link": { "url": "https://onus.com.ar/" }
       },
       {
         "company": "Ministry of Health",
