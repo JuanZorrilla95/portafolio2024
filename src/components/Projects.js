@@ -31,7 +31,7 @@ const projectsData = [
     image: "./portadapython.png",
     link: "https://github.com/JuanZorrilla95/motorAutomatizacionPython",
     isGithub: true,
-    tags: ["Laravel 11", "PHP", "MySQL"],
+    tags: ["Python", "FastAPI", "MongoDB", "PyTest", "Redis"],
   },
   {
     image: "./logogym.png",
