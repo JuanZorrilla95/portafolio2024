@@ -23,7 +23,7 @@
         
         "role": "Desarrollador Backend",
         "description": "Trabajé en aplicaciones empresariales, mantenimiento evolutivo y correctivo, optimización de consultas SQL y desarrollo de nuevas funcionalidades orientadas a procesos administrativos y contables.",
-        "skills": ["PHP", "MySQL", "SQL", "Javascript", "React Native", "Expo", "TSX"],
+        "skills": ["PHP", "MySQL", "SQLlite", "React Native", "Expo", "Typescript"],
         "link": { "url": "https://onus.com.ar/", "text": "Onus Sistemas" }
       },
       {
@@ -37,7 +37,7 @@
         
         "role": "Desarrollador Full-Stack Laravel",
         "description": "Desarrollador Full-Stack en una aplicación de préstamos financieros llamada Koinsya y adminKoinsya, integrando APIs bancarias, desarrollando nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.",
-        "skills": ["Laravel 11", "PHP", "TailwindCSS", "MySQL", "AWS"],
+        "skills": ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS EC2", "AWS S3", "CI/CD Github Actions"],
         "link": { "url": "https://koinsya.com/", "text": "Koinsya" }
       }
     ]
