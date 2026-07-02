@@ -20,11 +20,11 @@
     "title": "Work experience",
     "experiences": [
       {
-        "company": "Onus Sistemas",
+        
         "role": "Backend Developer",
         "description": "Working on enterprise applications, evolutionary and corrective maintenance, SQL query optimization, and development of new features focused on administrative and accounting processes.",
         "skills": ["PHP", "MySQL", "SQLlite", "React Native", "Expo", "Typescript"],
-        "link": { "url": "https://onus.com.ar/" }
+        "link": { "url": "https://onus.com.ar/", "text": "Onus Sistemas" }
       },
       {
         "company": "Ministry of Health",
@@ -34,7 +34,7 @@
         "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
       },
       {
-        "company": "Koinsya",
+        
         "role": "Full-Stack Laravel Developer",
         "description": "Full-Stack Laravel Developer at a financial loan application called Koinsya & adminKoinsya, implementing bank APIs, building new features, and migrating the database from MySQL to AWS Cloud.",
         "skills": ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS EC2", "AWS S3", "CI/CD Github Actions"],
