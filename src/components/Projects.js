@@ -34,7 +34,7 @@ const projectsData = [
     tags: ["Python", "FastAPI", "MongoDB", "PyTest", "Redis"],
   },
   {
-    image: "./logogym.webp",
+    image: "./gimnasio.webp",
     link: "https://github.com/JuanZorrilla95/GYM-KumbiaPHP",
     isGithub: true,
     tags: ["KumbiaPHP", "MVC", "MySQL"],
@@ -56,7 +56,7 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
           const img = e.target;
           if (!img.dataset.retried) {
             img.dataset.retried = "1";
-            img.src = "./logogym.webp";
+            img.src = "./gimnasio.webp";
           }
         }}
       />
