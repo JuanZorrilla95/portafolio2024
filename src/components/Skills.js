@@ -6,6 +6,7 @@ import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiAngular,
   SiMysql, SiPhp, SiPostgresql, SiNodedotjs, SiPostman, SiPython,
   SiGit, SiGithub, SiLaravel, SiSymfony, SiDocker, SiApache, SiGitlab, SiRedmine,
+  SiMongodb,
 } from "react-icons/si";
 
 // Mapeo nombre → { icono, color de marca }
@@ -23,6 +24,7 @@ const SKILL_ICONS = {
   API:        { icon: FiCode,       color: null },
   Postman:    { icon: SiPostman,    color: "#FF6C37" },
   Python:     { icon: SiPython,     color: "#3776AB" },
+  MongoDB:    { icon: SiMongodb,    color: "#47A248" },
   Git:        { icon: SiGit,        color: "#F05032" },
   GitHub:     { icon: SiGithub,     color: null },
   Laravel:    { icon: SiLaravel,    color: "#FF2D20" },
@@ -84,7 +86,7 @@ const SkillCategories = memo(() => {
       icon: <FiServer className="w-4 h-4 md:w-5 md:h-5 text-green-500" />,
       color: "bg-green-500/10 dark:bg-green-500/20",
       label: t("skills.categories.Backend"),
-      skills: ["MySQL", "PHP", "PostgreSQL", "Node.js", "API", "Postman", "Python"],
+      skills: ["MySQL", "PHP", "PostgreSQL", "Node.js", "API", "Postman", "Python", "MongoDB"],
     },
     {
       icon: <FiTool className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />,
