@@ -14,36 +14,35 @@
   },
   "about": {
     "title": "Sobre mí",
-    "description": "Desarrollador web full-stack. Desarrollo sistemas y aplicaciones web. Ya sea sitios web, apps móviles o aplicaciones web innovadoras y eficientes. Creo que el futuro de la profesión está en la especialización, la seguridad y los sistemas de diseño."
+    "description": "Técnico Informático recibido en la UNL y Desarrollador full-stack. Desarrollo sistemas y aplicaciones web. Ya sea sitios web, apps móviles o aplicaciones web innovadoras y eficientes. Creo que el futuro de la profesión está en la especialización, la seguridad y los sistemas de diseño."
   },
   "experience": {
     "title": "Experiencia laboral",
+    "subtitle": "CV en PDF",
     "experiences": [
       {
-        
         "role": "Desarrollador Backend",
         "description": "Trabajé en aplicaciones empresariales, mantenimiento evolutivo y correctivo, optimización de consultas SQL y desarrollo de nuevas funcionalidades orientadas a procesos administrativos y contables.",
         "skills": ["PHP", "MySQL", "SQLlite", "React Native", "Expo", "Typescript"],
         "link": { "url": "https://onus.com.ar/", "text": "Onus Sistemas" }
       },
       {
-        "company": "Ministerio de Salud",
-        "role": "Desarrollador Full-Stack",
-        "description": "Desarrollador Full-Stack en el Ministerio de Salud (Santa Fe - Argentina) en el proyecto GC Salud.",
-        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"],
-        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
-      },
-      {
-        
         "role": "Desarrollador Full-Stack Laravel",
         "description": "Desarrollador Full-Stack en una aplicación de préstamos financieros llamada Koinsya y adminKoinsya, integrando APIs bancarias, desarrollando nuevas funcionalidades y migrando la base de datos de MySQL a AWS Cloud.",
         "skills": ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS EC2", "AWS S3", "CI/CD Github Actions"],
         "link": { "url": "https://koinsya.com/", "text": "Koinsya" }
+      },
+      {
+        "company": "Ministerio de Salud",
+        "role": "Desarrollador Full-Stack",
+        "description": "Desarrollador Full-Stack en el Ministerio de Salud (Santa Fe - Argentina) en el proyecto de capacitaciones GC Salud.",
+        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "Jquery", "HTML", "CSS"],
+        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
       }
     ]
   },
   "projects": {
-    "title": "Algunos Proyectos",
+    "title": "Algunos Proyectos para clientes",
     "viewMore": "Ver más",
     "items": [
       {

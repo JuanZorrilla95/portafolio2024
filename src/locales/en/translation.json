@@ -20,30 +20,28 @@
     "title": "Work experience",
     "experiences": [
       {
-        
         "role": "Backend Developer",
         "description": "Working on enterprise applications, evolutionary and corrective maintenance, SQL query optimization, and development of new features focused on administrative and accounting processes.",
         "skills": ["PHP", "MySQL", "SQLlite", "React Native", "Expo", "Typescript"],
         "link": { "url": "https://onus.com.ar/", "text": "Onus Sistemas" }
       },
       {
-        "company": "Ministry of Health",
-        "role": "Full-Stack Developer",
-        "description": "Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on the GC Salud project.",
-        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "HTML", "CSS"],
-        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
-      },
-      {
-        
         "role": "Full-Stack Laravel Developer",
         "description": "Full-Stack Laravel Developer at a financial loan application called Koinsya & adminKoinsya, implementing bank APIs, building new features, and migrating the database from MySQL to AWS Cloud.",
         "skills": ["Laravel", "PHP", "TailwindCSS", "MySQL", "AWS EC2", "AWS S3", "CI/CD Github Actions"],
         "link": { "url": "https://koinsya.com/", "text": "Koinsya" }
+      },
+      {
+        "company": "Ministry of Health",
+        "role": "Full-Stack Developer",
+        "description": "Full-Stack Developer at the Ministry of Health (Santa Fe - Argentina) on the GC Salud project.",
+        "skills": ["PHP", "Javascript", "Symfony", "MySQL", "Jquery", "HTML", "CSS"],
+        "link": { "url": "https://www.santafe.gob.ar/ms/gcsalud/", "text": "GC Salud" }
       }
     ]
   },
   "projects": {
-    "title": "Some Projects",
+    "title": "Some Projects for clients",
     "viewMore": "View more",
     "items": [
       {
