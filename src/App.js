@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
-import LoadingSpinner from './components/LoadingSpinner';
+// import LoadingSpinner from './components/LoadingSpinner';
 import ErrorBoundaryFallback from './components/ErrorBoundaryFallback';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import './i18n';
