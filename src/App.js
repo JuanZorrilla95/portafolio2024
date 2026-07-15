@@ -42,17 +42,25 @@ function AppContent() {
         <div className="min-h-screen bg-white dark:bg-gray-900">
           <Header />
           <main>
-            <Suspense fallback={<LoadingSpinner />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Hero />
             </Suspense>
-
             <Suspense fallback={<SectionSkeleton />}>
               <About />
+            </Suspense>
+            <Suspense fallback={<SectionSkeleton />}>
               <Experience />
+            </Suspense>
+            <Suspense fallback={<SectionSkeleton />}>
               <Projects />
+            </Suspense>
+            <Suspense fallback={<SectionSkeleton />}>
               <Skills />
+            </Suspense>
+            <Suspense fallback={<SectionSkeleton />}>
               <Contact />
             </Suspense>
+
           </main>
 
           <Suspense fallback={null}>
