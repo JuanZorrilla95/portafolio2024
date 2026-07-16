@@ -123,7 +123,7 @@ const SkillCategories = memo(() => {
       <m.div
         variants={itemVariants}
         whileHover={{ y: -5 }}
-        className="glass-card p-4 md:p-6 hover:shadow-xl transition-all duration-300"
+        className="glass-card p-4 md:p-6 hover:shadow-xl "
       >
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
           <div className="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20">
@@ -174,7 +174,7 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
+      className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800 "
     >
       <div className="section-container">
         <m.div
