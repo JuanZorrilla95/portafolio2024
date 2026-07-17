@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { m } from "framer-motion";
-import { FiMonitor, FiServer, FiTool, FiMessageCircle, FiCode } from "react-icons/fi";
+import { FiMonitor, FiServer, FiTool, FiMessageCircle, FiCode, FiCpu } from "react-icons/fi";
 import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiAngular,
   SiMysql, SiPhp, SiPostgresql, SiNodedotjs, SiPostman, SiPython,
@@ -34,6 +34,7 @@ const SKILL_ICONS = {
   Laragon:    { icon: FiServer,     color: null },
   GitLab:     { icon: SiGitlab,     color: "#FC6D26" },
   Redmine:    { icon: SiRedmine,    color: "#B32024" },
+  OpenCode:   { icon: FiCpu,        color: "#00D4AA" },
 };
 
 const containerVariants = {
@@ -72,104 +73,32 @@ const SkillIcon = memo(({ name }) => {
   );
 });
 
-const SkillCategories = memo(() => {
+function Skills() {
   const { t } = useTranslation();
 
   const categories = [
     {
-      icon: <FiMonitor className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />,
+      id: "frontend",
+      icon: <FiMonitor className="w-4 h-4 md:w-5 md:h-6 text-blue-500" />,
       color: "bg-blue-500/10 dark:bg-blue-500/20",
       label: t("skills.categories.Frontend"),
       skills: ["HTML5", "CSS3", "JavaScript", "React", "Angular"],
     },
     {
-      icon: <FiServer className="w-4 h-4 md:w-5 md:h-5 text-green-500" />,
+      id: "backend",
+      icon: <FiServer className="w-4 h-4 md:w-5 md:h-6 text-green-500" />,
       color: "bg-green-500/10 dark:bg-green-500/20",
       label: t("skills.categories.Backend"),
       skills: ["MySQL", "PHP", "PostgreSQL", "Node.js", "API", "Postman", "Python", "MongoDB"],
     },
     {
-      icon: <FiTool className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />,
+      id: "tools",
+      icon: <FiTool className="w-4 h-4 md:w-5 md:h-6 text-orange-500" />,
       color: "bg-orange-500/10 dark:bg-orange-500/20",
       label: t("skills.categories.Tools"),
-      skills: ["Git", "GitHub", "Laravel", "Symfony", "Docker", "Apache", "Laragon", "GitLab", "Redmine"],
+      skills: ["OpenCode", "Git", "GitHub", "Laravel", "Symfony", "Docker", "Apache", "Laragon", "GitLab", "Redmine"],
     },
   ];
-
-  return (
-    <>
-      {categories.map(({ icon, color, label, skills }) => (
-        <m.div
-          key={label}
-          variants={itemVariants}
-          whileHover={{ y: -5 }}
-          className="glass-card p-4 md:p-6"
-        >
-          <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-            <div className={`p-2 rounded-xl ${color}`}>{icon}</div>
-            <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
-              {label}
-            </h3>
-          </div>
-          <div className="grid grid-cols-2 gap-1.5 md:gap-2">
-            {skills.map((name) => (
-              <SkillIcon key={name} name={name} />
-            ))}
-          </div>
-        </m.div>
-      ))}
-
-      {/* English card — sin cambios */}
-      <m.div
-        variants={itemVariants}
-        whileHover={{ y: -5 }}
-        className="glass-card p-4 md:p-6 hover:shadow-xl "
-      >
-        <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-          <div className="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20">
-            <FiMessageCircle className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
-          </div>
-          <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
-            {t("skills.categories.English")}
-          </h3>
-        </div>
-        <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-700/30 mb-3">
-          <span className="text-xs md:text-sm font-semibold text-primary-700 dark:text-primary-300">
-            {t("skills.english.level")}
-          </span>
-        </div>
-        <div className="space-y-2">
-          <a
-            href="https://imgur.com/5U3XP8M"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
-            {t("skills.english.academy")}
-          </a>
-          <div className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5" />
-            <span>
-              {t("skills.english.efset")}{" "}
-              <a
-                href="https://www.efset.org/cert/EUPSMW"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-500 dark:text-primary-400 hover:underline"
-              >
-                efset.org/cert/EUPSMW
-              </a>
-            </span>
-          </div>
-        </div>
-      </m.div>
-    </>
-  );
-});
-
-function Skills() {
-  const { t } = useTranslation();
 
   return (
     <section
@@ -182,12 +111,12 @@ function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-14"
+          className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-2xl sm:text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             {t("skills.title")}
           </h2>
-          <div className="w-16 h-0.5 md:w-20 md:h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
+          <div className="w-16 h-0.5 md:w-15 md:h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full" />
         </m.div>
 
         <m.div
@@ -197,7 +126,72 @@ function Skills() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 max-w-6xl mx-auto"
         >
-          <SkillCategories />
+          {categories.map(({ id, icon, color, label, skills }) => (
+            <m.div
+              key={id}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="glass-card p-4 md:p-6"
+            >
+              <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                <div className={`p-2 rounded-xl ${color}`}>{icon}</div>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+                  {label}
+                </h3>
+              </div>
+              <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+                {skills.map((name) => (
+                  <SkillIcon key={name} name={name} />
+                ))}
+              </div>
+            </m.div>
+          ))}
+
+          {/* English card */}
+          <m.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="glass-card p-4 md:p-6 hover:shadow-xl "
+          >
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <div className="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20">
+                <FiMessageCircle className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
+              </div>
+              <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
+                {t("skills.categories.English")}
+              </h3>
+            </div>
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-700/30 mb-3">
+              <span className="text-xs md:text-sm font-semibold text-primary-700 dark:text-primary-300">
+                {t("skills.english.level")}
+              </span>
+            </div>
+            <div className="space-y-2">
+              <a
+                href="https://imgur.com/5U3XP8M"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
+                {t("skills.english.academy")}
+              </a>
+              <div className="flex items-start gap-1.5 md:gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5" />
+                <span>
+                  {t("skills.english.efset")}{" "}
+                  <a
+                    href="https://www.efset.org/cert/EUPSMW"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-500 dark:text-primary-400 hover:underline"
+                  >
+                    efset.org/cert/EUPSMW
+                  </a>
+                </span>
+              </div>
+            </div>
+          </m.div>
         </m.div>
       </div>
     </section>
