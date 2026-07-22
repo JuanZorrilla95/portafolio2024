@@ -5,7 +5,7 @@ import { FiMonitor, FiServer, FiTool, FiMessageCircle, FiCode, FiCpu } from "rea
 import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiAngular,
   SiMysql, SiPhp, SiPostgresql, SiNodedotjs, SiPostman, SiPython,
-  SiGit, SiGithub, SiLaravel, SiSymfony, SiDocker, SiApache, SiGitlab, SiRedmine,
+  SiGit, SiGithub, SiLaravel, SiSymfony, SiDocker, SiApache, SiGitlab, SiFilezilla,
   SiMongodb,
 } from "react-icons/si";
 
@@ -33,7 +33,7 @@ const SKILL_ICONS = {
   Apache:     { icon: SiApache,     color: "#D22128" },
   Laragon:    { icon: FiServer,     color: null },
   GitLab:     { icon: SiGitlab,     color: "#FC6D26" },
-  Redmine:    { icon: SiRedmine,    color: "#B32024" },
+  FileZilla:    { icon: SiFilezilla,    color: "#B32024" },
   OpenCode:   { icon: FiCpu,        color: "#00D4AA" },
 };
 
@@ -96,7 +96,7 @@ function Skills() {
       icon: <FiTool className="w-4 h-4 md:w-5 md:h-6 text-orange-500" />,
       color: "bg-orange-500/10 dark:bg-orange-500/20",
       label: t("skills.categories.Tools"),
-      skills: ["OpenCode", "Git", "GitHub", "Laravel", "Symfony", "Docker", "Apache", "Laragon", "GitLab", "Redmine"],
+      skills: ["OpenCode", "Git", "GitHub", "Laravel", "Symfony", "Docker", "Apache", "Laragon", "GitLab", "FileZilla"],
     },
   ];
 
