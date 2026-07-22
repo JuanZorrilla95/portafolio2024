@@ -25,7 +25,7 @@ const projectsData = [
     image: "./nadaenpunta.webp",
     link: "https://www.nadaenpunta.com",
     // isGithub: true,
-    tags: ["PHP", "MySQL", "JavaScript"],
+    tags: ["PHP", "MySQL", "JavaScript", "FileZilla"],
   },
   {
     image: "./portadapython.webp",
