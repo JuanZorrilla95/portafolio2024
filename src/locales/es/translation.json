@@ -54,8 +54,8 @@
         "description": "Motor de automatización de facturas para una empresa de servicios con generación y envío automático de facturas a los clientes."
       },
       {
-        "title": "GYM Kumbia-PHP",
-        "description": "Proyecto de un Gimnasio con alta de clases, profesores, horarios hecho con KumbiaPHP y el patrón MVC"
+        "title": "Turnero GYM",
+        "description": "Proyecto de un Gimnasio con alta de clases, profesores y horarios hecho con KumbiaPHP y el patrón MVC"
       }
     ]
   },
