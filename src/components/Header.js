@@ -105,7 +105,7 @@ function Header() {
           </m.button>
 
           {/* Theme Toggle */}
-          <m.button
+          {/* <m.button
             whileHover={{ scale: 1.1, rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
@@ -116,7 +116,7 @@ function Header() {
             }`}
           >
             {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </m.button>
+          </m.button> */}
         </div>
 
         {/* Mobile Menu Button */}
