@@ -130,7 +130,7 @@ function Header() {
           >
             <FiGlobe className="w-5 h-5" />
           </m.button>
-          <m.button
+          {/* <m.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
             className={`p-2 rounded-lg ${
@@ -138,7 +138,7 @@ function Header() {
             }`}
           >
             {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-          </m.button>
+          </m.button> */}
           <m.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
