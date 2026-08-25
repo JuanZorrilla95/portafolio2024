@@ -151,7 +151,7 @@ function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menuu */}
+      {/* Mobile Menuuu */}
       <AnimatePresence>
         {isOpen && (
           <m.div
