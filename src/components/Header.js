@@ -170,7 +170,7 @@ function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(key)}
-                  className="text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-500 font-medium "
+                  className="text-right px-12 py-3 rounded-lg text-gray-700 dark:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-500 font-medium "
                 >
                   {t(`nav.${key}`)}
                 </m.button>
