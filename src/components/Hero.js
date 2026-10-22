@@ -39,7 +39,7 @@ function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-sm font-medium mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10  border-white/20 text-white/80 text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             Software Developer
@@ -99,7 +99,7 @@ function Hero() {
               href="https://github.com/juanzorrilla95"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all"
+              className="p-3 rounded-full bg-white/10  border-white/20 text-white hover:bg-white/20 transition-all"
             >
               <FiGithub className="w-5 h-5" />
             </m.a>
@@ -109,7 +109,7 @@ function Hero() {
               href="https://linkedin.com/in/juanzorrilla95"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all"
+              className="p-3 rounded-full bg-white/10  border-white/20 text-white hover:bg-white/20 transition-all"
             >
               <FiLinkedin className="w-5 h-5" />
             </m.a>

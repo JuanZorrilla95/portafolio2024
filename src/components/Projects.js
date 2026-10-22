@@ -62,7 +62,7 @@ const ProjectCard = memo(({ project, translated, viewMoreLabel }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 flex items-end justify-center pb-4">
         <m.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href={project.link} target="_blank"
-          rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium text-gray-900 dark:text-white backdrop-blur-sm"
+          rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-sm font-medium text-gray-900 dark:text-white "
         >
           {project.isGithub ? ( <> 
 		  <FiGithub className="w-4 h-4" />

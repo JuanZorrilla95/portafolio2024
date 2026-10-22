@@ -50,7 +50,7 @@ function Header() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50  ${
         scrolled
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
+          ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -160,7 +160,7 @@ function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200/50 dark:border-gray-700/50"
+            className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200/50 dark:border-gray-700/50"
           >
             <div className="section-container py-4 flex flex-col gap-1">
               {navKeys.map((key, index) => (
