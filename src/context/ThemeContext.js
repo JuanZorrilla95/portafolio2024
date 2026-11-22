@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useEffect, useMemo } from 'react';
 
 const ThemeContext = createContext();
 
@@ -10,31 +10,18 @@ export const useTheme = () => {
   return context;
 };
 
+// Tema fijo en claro. Se mantiene la misma API (isDark, toggleTheme) para que
+// cualquier componente que todavía use useTheme() siga funcionando.
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
+    document.documentElement.classList.remove('dark');
+    // Limpia lo que quedó guardado de cuando existía el toggle
+    localStorage.removeItem('theme');
+  }, []);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const value = useMemo(() => ({ isDark: false, toggleTheme: () => {} }), []);
 
-  return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeContext;
